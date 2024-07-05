@@ -1,19 +1,20 @@
 [gd_scene load_steps=9 format=3 uid="uid://0crreg45484a"]
 
 [ext_resource type="Script" path="res://Player.gd" id="1_i5jvr"]
-[ext_resource type="Texture2D" uid="uid://dan0nc1qswub8" path="res://autumn_field_puresky_8k.hdr" id="2_264mu"]
+[ext_resource type="PackedScene" uid="uid://bmvweftpbtrpq" path="res://Models/Platform1.glb" id="2_8p416"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_kbqc2"]
 radius = 0.322304
 height = 1.37158
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_17jgn"]
-size = Vector3(8.32526, 0.314453, 4.80701)
+size = Vector3(3.39631, 1.34204, 4.80701)
 
-[sub_resource type="BoxMesh" id="BoxMesh_ll36o"]
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_dpio4"]
+load_path = "res://.godot/imported/industrial_sunset_puresky_8k.hdr-c9ea67f57118f5fca7f0037192863795.ctex"
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_8e6gl"]
-panorama = ExtResource("2_264mu")
+panorama = SubResource("CompressedTexture2D_dpio4")
 
 [sub_resource type="Sky" id="Sky_8kb7s"]
 sky_material = SubResource("PanoramaSkyMaterial_8e6gl")
@@ -21,6 +22,7 @@ radiance_size = 1
 
 [sub_resource type="Environment" id="Environment_6ytex"]
 background_mode = 2
+background_energy_multiplier = 0.7
 sky = SubResource("Sky_8kb7s")
 
 [node name="Node3D" type="Node3D"]
@@ -42,12 +44,11 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0283577, 0)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.367489, 0)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.34024, -0.342773, -0.210266)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00175738, -0.754271, -0.210266)
 shape = SubResource("BoxShape3D_17jgn")
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D"]
-transform = Transform3D(3.85934, 0, 0, 0, 0.247366, 0, 0, 0, 3.85934, 0, 0, 0)
-mesh = SubResource("BoxMesh_ll36o")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_6ytex")
+
+[node name="Platform1" parent="." instance=ExtResource("2_8p416")]
+transform = Transform3D(1.66258, 0, 0, 0, 1.0741, 0, 0, 0, 1.66258, -0.0141461, -1.5898, -0.36285)
