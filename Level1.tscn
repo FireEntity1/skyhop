@@ -1,0 +1,53 @@
+[gd_scene load_steps=9 format=3 uid="uid://0crreg45484a"]
+
+[ext_resource type="Script" path="res://Player.gd" id="1_i5jvr"]
+[ext_resource type="Texture2D" uid="uid://dan0nc1qswub8" path="res://autumn_field_puresky_8k.hdr" id="2_264mu"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_kbqc2"]
+radius = 0.322304
+height = 1.37158
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_17jgn"]
+size = Vector3(8.32526, 0.314453, 4.80701)
+
+[sub_resource type="BoxMesh" id="BoxMesh_ll36o"]
+
+[sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_8e6gl"]
+panorama = ExtResource("2_264mu")
+
+[sub_resource type="Sky" id="Sky_8kb7s"]
+sky_material = SubResource("PanoramaSkyMaterial_8e6gl")
+radiance_size = 1
+
+[sub_resource type="Environment" id="Environment_6ytex"]
+background_mode = 2
+sky = SubResource("Sky_8kb7s")
+
+[node name="Node3D" type="Node3D"]
+
+[node name="Player" type="CharacterBody3D" parent="."]
+script = ExtResource("1_i5jvr")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Player"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.613244, 0)
+shape = SubResource("CapsuleShape3D_kbqc2")
+
+[node name="head" type="Node3D" parent="Player"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.935166, 0)
+
+[node name="PlayerCam" type="Camera3D" parent="Player/head"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0283577, 0)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.367489, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.34024, -0.342773, -0.210266)
+shape = SubResource("BoxShape3D_17jgn")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D"]
+transform = Transform3D(3.85934, 0, 0, 0, 0.247366, 0, 0, 0, 3.85934, 0, 0, 0)
+mesh = SubResource("BoxMesh_ll36o")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_6ytex")
