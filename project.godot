@@ -55,6 +55,10 @@ ground_slam={
 ]
 }
 
+[physics]
+
+3d/default_gravity=16.7
+
 [rendering]
 
 renderer/rendering_method="gl_compatibility"

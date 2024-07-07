@@ -1,8 +1,8 @@
 extends CharacterBody3D
 
 
-const SPEED = 5.0
-const JUMP_VELOCITY = 8
+const SPEED = 15
+const JUMP_VELOCITY = 10
 @export var sensitivity = -0.1
 var capture = true
 
@@ -43,6 +43,11 @@ func _physics_process(delta):
 		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 		capture = false
 	move_and_slide()
+
+	if self.position.y < -30:
+		self.position.y = 5
+		self.position.x = 0
+		self.position.z = 0
 
 func _input(event):
 	if event is InputEventMouseMotion and capture == true:
