@@ -1,11 +1,11 @@
-[gd_scene load_steps=3 format=3 uid="uid://rv2kgpgykjsh"]
+[gd_scene load_steps=3 format=3 uid="uid://5ukhkedqdumi"]
 
-[ext_resource type="PackedScene" uid="uid://bmvweftpbtrpq" path="res://Models/Platform1.glb" id="1_3rgrk"]
+[ext_resource type="PackedScene" uid="uid://bmvweftpbtrpq" path="res://Models/Platform1.glb" id="1_b4epp"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_6x8sm"]
 size = Vector3(2.00826, 1.9964, 2.00803)
 
-[node name="Platform1" instance=ExtResource("1_3rgrk")]
+[node name="Platform1" instance=ExtResource("1_b4epp")]
 
 [node name="Cube" parent="." index="0"]
 transform = Transform3D(2.14833, 0, 0, 0, 0.641693, 0, 0, 0, 2.14833, 0, 0, 0)
@@ -16,8 +16,3 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.367489, 0)
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Cube/StaticBody3D" index="0"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00197983, 0.369376, 0.00175536)
 shape = SubResource("BoxShape3D_6x8sm")
-
-[node name="SpotLight3D" type="SpotLight3D" parent="Cube" index="1"]
-transform = Transform3D(0.465478, 0, 0, 0, 5.55077e-09, 1.55838, 0, -0.465478, 1.65798e-09, 0, 5.73691, 0.138042)
-light_energy = 5.8
-spot_angle = 63.18

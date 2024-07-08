@@ -1,0 +1,137 @@
+[gd_scene load_steps=8 format=3 uid="uid://ht2kh8bywq4w"]
+
+[ext_resource type="Script" path="res://Scripts/Player.gd" id="1_48s62"]
+[ext_resource type="PackedScene" uid="uid://5ukhkedqdumi" path="res://Scenes/Platform2.tscn" id="2_t3gbt"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_wkm2g"]
+radius = 0.322304
+height = 1.37158
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_hbb6y"]
+sky_top_color = Color(0.0217984, 0.0326057, 0.0509895, 1)
+sky_horizon_color = Color(0.25678, 0.263616, 0.274407, 1)
+ground_bottom_color = Color(0.00784314, 0.0196078, 0.0392157, 1)
+ground_horizon_color = Color(0.26933, 0.276407, 0.287581, 1)
+sun_angle_max = 27.78
+sun_curve = 3.89881
+
+[sub_resource type="Sky" id="Sky_vamku"]
+sky_material = SubResource("ProceduralSkyMaterial_hbb6y")
+
+[sub_resource type="Environment" id="Environment_bsjrm"]
+background_mode = 2
+sky = SubResource("Sky_vamku")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_eq3kg"]
+size = Vector3(8.90262, 7.81921, 8.05948)
+
+[node name="Level4" type="Node3D"]
+
+[node name="Player" type="CharacterBody3D" parent="."]
+transform = Transform3D(-0.129626, 0, -0.991563, 0, 1, 0, 0.991563, 0, -0.129626, 0, 1.12834, 0)
+script = ExtResource("1_48s62")
+
+[node name="PlayerCollision" type="CollisionShape3D" parent="Player"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.613244, 0)
+shape = SubResource("CapsuleShape3D_wkm2g")
+
+[node name="head" type="Node3D" parent="Player"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.935166, 0)
+
+[node name="PlayerCam" type="Camera3D" parent="Player/head"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0113506, 0.0689784, 0.0445242)
+current = true
+fov = 111.1
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_bsjrm")
+
+[node name="Platform1" parent="." instance=ExtResource("2_t3gbt")]
+transform = Transform3D(2.17775, 0, 0, 0, 0.759184, 0, 0, 0, 2.17775, -0.350628, -0.259418, -0.857411)
+
+[node name="Platform2" parent="." instance=ExtResource("2_t3gbt")]
+transform = Transform3D(1.59193, 0, 0, 0, 1.32252, 0, 0, 0, 1.59193, -0.350628, -0.259418, -19.6154)
+
+[node name="Platform3" parent="." instance=ExtResource("2_t3gbt")]
+transform = Transform3D(1.59193, 0, 0, 0, 1.32252, 0, 0, 0, 1.59193, 22.6982, -0.294112, -33.2581)
+
+[node name="Platform4" parent="." instance=ExtResource("2_t3gbt")]
+transform = Transform3D(1.20822, -0.861133, 0, 1.03656, 1.00374, 0, 0, 0, 1.59193, 56.2508, -0.294112, -33.2581)
+
+[node name="Platform5" parent="." instance=ExtResource("2_t3gbt")]
+transform = Transform3D(1.20822, -0.861133, 0, 1.03656, 1.00374, 0, 0, 0, 1.59193, 77.8472, 1.03142, -20.4726)
+
+[node name="Platform6" parent="." instance=ExtResource("2_t3gbt")]
+transform = Transform3D(1.20822, -0.861133, 0, 1.03656, 1.00374, 0, 0, 0, 1.59193, 84.4941, 5.54354, -9.67018)
+
+[node name="Platform7" parent="." instance=ExtResource("2_t3gbt")]
+transform = Transform3D(1.59193, 0, 0, 0, 1.32252, 0, 0, 0, 1.59193, 106.561, 6.01963, -4.06971)
+
+[node name="Platform8" parent="." instance=ExtResource("2_t3gbt")]
+transform = Transform3D(1.59193, 0, 0, 0, 1.32252, 0, 0, 0, 1.59193, 140.107, 1.51032, 9.00533)
+
+[node name="Platform9" parent="." instance=ExtResource("2_t3gbt")]
+transform = Transform3D(1.59193, 0, 0, 0, 1.32252, 0, 0, 0, 1.59193, 178.29, 1.51032, 16.8774)
+
+[node name="Platform21" parent="." instance=ExtResource("2_t3gbt")]
+transform = Transform3D(1.59193, 0, 0, 0, 1.32252, 0, 0, 0, 1.59193, 178.29, 1.51032, 33.508)
+
+[node name="Platform10" parent="." instance=ExtResource("2_t3gbt")]
+transform = Transform3D(1.37844, -0.661558, 0, 0.796325, 1.14516, 0, 0, 0, 1.59193, 178.29, 1.51032, 58.0366)
+
+[node name="Platform11" parent="." instance=ExtResource("2_t3gbt")]
+transform = Transform3D(1.45276, 0.540782, 0, -0.650946, 1.2069, 0, 0, 0, 1.59193, 178.29, 1.51032, 86.9763)
+
+[node name="Platform20" parent="." instance=ExtResource("2_t3gbt")]
+transform = Transform3D(1.45276, 0.540782, 0, -0.650946, 1.2069, 0, 0, 0, 1.59193, 178.29, 1.51032, 108.034)
+
+[node name="Platform12" parent="." instance=ExtResource("2_t3gbt")]
+transform = Transform3D(1.53577, -0.348175, 0, 0.419102, 1.27586, 0, 0, 0, 1.59193, 178.29, 1.51032, 134.589)
+
+[node name="Platform13" parent="." instance=ExtResource("2_t3gbt")]
+transform = Transform3D(1.43445, 0.573521, 0, -0.690354, 1.19169, 0, 0, 0, 1.59193, 147.418, 4.63891, 133.434)
+
+[node name="Platform22" parent="." instance=ExtResource("2_t3gbt")]
+transform = Transform3D(1.43445, 0.573521, 0, -0.690354, 1.19169, 0, 0, 0, 1.59193, 140.59, 8.57026, 133.434)
+
+[node name="Platform23" parent="." instance=ExtResource("2_t3gbt")]
+transform = Transform3D(1.43445, 0.573521, 0, -0.690354, 1.19169, 0, 0, 0, 1.59193, 126.727, 17.3641, 133.434)
+
+[node name="Platform24" parent="." instance=ExtResource("2_t3gbt")]
+transform = Transform3D(1.43445, 0.573521, 0, -0.690354, 1.19169, 0, 0, 0, 1.59193, 112.036, 26.6752, 133.434)
+
+[node name="Platform25" parent="." instance=ExtResource("2_t3gbt")]
+transform = Transform3D(1.43445, 0.573521, 0, -0.690354, 1.19169, 0, 0, 0, 1.59193, 105.001, 30.1928, 133.434)
+
+[node name="Platform14" parent="." instance=ExtResource("2_t3gbt")]
+transform = Transform3D(1.43445, 0.573521, 0, -0.690354, 1.19169, 0, 0, 0, 1.59193, 133.629, 12.0427, 133.434)
+
+[node name="Platform15" parent="." instance=ExtResource("2_t3gbt")]
+transform = Transform3D(1.43445, 0.573521, 0, -0.690354, 1.19169, 0, 0, 0, 1.59193, 119.546, 22.2162, 133.434)
+
+[node name="Platform16" parent="." instance=ExtResource("2_t3gbt")]
+transform = Transform3D(1.43445, 0.573521, 0, -0.690354, 1.19169, 0, 0, 0, 1.59193, 98.4597, 34.4165, 133.434)
+
+[node name="Platform17" parent="." instance=ExtResource("2_t3gbt")]
+transform = Transform3D(1.58586, 0.115403, 0, -0.135561, 1.28569, 0.34754, 0.0303263, -0.287622, 1.55353, 104.656, 34.4165, 167.38)
+
+[node name="Platform18" parent="." instance=ExtResource("2_t3gbt")]
+transform = Transform3D(1.58586, 0.115403, -2.58937e-09, -0.136667, 1.29618, -0.285023, -0.0248711, 0.235884, 1.56621, 137.255, 34.4165, 167.38)
+
+[node name="Platform19" parent="." instance=ExtResource("2_t3gbt")]
+transform = Transform3D(1.58586, 0.115403, -2.58937e-09, -0.136667, 1.29618, -0.285023, -0.0248711, 0.235884, 1.56621, 146.825, 34.4165, 189.713)
+
+[node name="Platform26" parent="." instance=ExtResource("2_t3gbt")]
+transform = Transform3D(3.5154, 0, 0, 0, 2.18726, 0, 0, 0, 3.5154, 146.825, 34.4165, 212.382)
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, -0.000421277, 0.000136219, -0.000143393, -0.0170761, 0.999854, -0.000418889, -0.999854, -0.0170761, -2.47384, 19.5036, -19.9486)
+
+[node name="EndPoint" type="Area3D" parent="."]
+transform = Transform3D(1.81183, 0, 0, 0, 1.81183, 0, 0, 0, 1.81183, 145.045, 38.1553, 213.548)
+
+[node name="EndCollision" type="CollisionShape3D" parent="EndPoint"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.856338, 1.01545, -0.696152)
+shape = SubResource("BoxShape3D_eq3kg")
+
+[connection signal="body_entered" from="EndPoint" to="Player" method="_on_end_point_body_entered"]

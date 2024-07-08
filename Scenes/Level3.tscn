@@ -15,12 +15,12 @@ ground_bottom_color = Color(0.0546257, 0.0744381, 0.101866, 1)
 ground_horizon_color = Color(0.623529, 0.52549, 0.313726, 1)
 ground_curve = 0.342967
 
-[sub_resource type="Sky" id="Sky_beke6"]
+[sub_resource type="Sky" id="Sky_tci8u"]
 sky_material = SubResource("ProceduralSkyMaterial_8upuf")
 
 [sub_resource type="Environment" id="Environment_eskl1"]
 background_mode = 2
-sky = SubResource("Sky_beke6")
+sky = SubResource("Sky_tci8u")
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_ooobq"]
 size = Vector3(8.90262, 7.81921, 8.05948)
