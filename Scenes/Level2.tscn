@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://d00x6q3bpj0xv"]
+[gd_scene load_steps=9 format=3 uid="uid://d00x6q3bpj0xv"]
 
 [ext_resource type="Script" path="res://Scripts/Player.gd" id="1_hejfg"]
 [ext_resource type="PackedScene" uid="uid://rv2kgpgykjsh" path="res://Scenes/Platform1.tscn" id="2_xonxn"]
@@ -15,12 +15,17 @@ ground_bottom_color = Color(0.490196, 0.458824, 0.807843, 1)
 ground_horizon_color = Color(0.772549, 0.611765, 0.533333, 1)
 ground_curve = 0.59714
 
-[sub_resource type="Sky" id="Sky_beke6"]
+[sub_resource type="Sky" id="Sky_kfyfd"]
 sky_material = SubResource("ProceduralSkyMaterial_8d73j")
 
 [sub_resource type="Environment" id="Environment_eabiy"]
 background_mode = 2
-sky = SubResource("Sky_beke6")
+sky = SubResource("Sky_kfyfd")
+
+[sub_resource type="Theme" id="Theme_j7ap4"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_6b6og"]
+size = Vector3(8.90262, 7.81921, 8.05948)
 
 [node name="Level2" type="Node3D"]
 
@@ -108,3 +113,24 @@ transform = Transform3D(1.27786, 0, 0, 0, 1.27786, 0, 0, 0, 1.27786, -0.0523453,
 
 [node name="Platform22" parent="." instance=ExtResource("2_xonxn")]
 transform = Transform3D(3.70569, 0, 0, 0, 2.30147, 0, 0, 0, 3.70569, -22.1129, -0.257139, 135.01)
+
+[node name="Label" type="Label" parent="."]
+offset_left = 691.0
+offset_top = 785.0
+offset_right = 1067.0
+offset_bottom = 984.0
+scale = Vector2(1.48012, 1.48012)
+theme = SubResource("Theme_j7ap4")
+theme_type_variation = &"HeaderLarge"
+text = "LEVEL TWO"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="EndPoint" type="Area3D" parent="."]
+transform = Transform3D(1.81183, 0, 0, 0, 1.81183, 0, 0, 0, 1.81183, -23.1068, 3.12662, 136.079)
+
+[node name="EndCollision" type="CollisionShape3D" parent="EndPoint"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.856338, 1.01545, -0.696152)
+shape = SubResource("BoxShape3D_6b6og")
+
+[connection signal="body_entered" from="EndPoint" to="Player" method="_on_end_point_body_entered"]

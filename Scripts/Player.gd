@@ -66,3 +66,6 @@ func _on_end_point_body_entered(body):
 		match get_tree().current_scene.name:
 			"Tutorial" : get_tree().change_scene_to_file("res://Scenes/Level1.tscn")
 			"Level1" : get_tree().change_scene_to_file("res://Scenes/Level2.tscn")
+			"Level2" : get_tree().change_scene_to_file("res://Scenes/Level3.tscn")
+			"Level3" : get_tree().change_scene_to_file("res://Scenes/Level4.tscn")
+			
