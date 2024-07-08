@@ -1,0 +1,118 @@
+[gd_scene load_steps=9 format=3 uid="uid://bmf6t2d636my7"]
+
+[ext_resource type="Script" path="res://Scripts/Player.gd" id="1_b6xb1"]
+[ext_resource type="PackedScene" uid="uid://rv2kgpgykjsh" path="res://Scenes/Platform1.tscn" id="2_i8ws0"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_yhg7e"]
+radius = 0.322304
+height = 1.37158
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_ojuy1"]
+sky_top_color = Color(0.9994, 0.676032, 0.990881, 1)
+sky_horizon_color = Color(0.97062, 0.512029, 0.236322, 1)
+sky_curve = 0.184672
+ground_bottom_color = Color(0.829625, 0.727643, 0.636019, 1)
+ground_horizon_color = Color(0.968627, 0.513726, 0.247059, 1)
+ground_curve = 0.226274
+
+[sub_resource type="Sky" id="Sky_8kb7s"]
+sky_material = SubResource("ProceduralSkyMaterial_ojuy1")
+radiance_size = 1
+
+[sub_resource type="Environment" id="Environment_30gsj"]
+background_mode = 2
+sky = SubResource("Sky_8kb7s")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_1ohyw"]
+size = Vector3(4.34973, 7.81921, 4.67932)
+
+[sub_resource type="Theme" id="Theme_gjoex"]
+
+[node name="Level1" type="Node3D"]
+
+[node name="Player" type="CharacterBody3D" parent="."]
+script = ExtResource("1_b6xb1")
+
+[node name="PlayerCollision" type="CollisionShape3D" parent="Player"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.613244, 0)
+shape = SubResource("CapsuleShape3D_yhg7e")
+
+[node name="head" type="Node3D" parent="Player"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.935166, 0)
+
+[node name="PlayerCam" type="Camera3D" parent="Player/head"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0113506, 0.0689784, 0.0445242)
+current = true
+fov = 111.1
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_30gsj")
+
+[node name="Platform1" parent="." instance=ExtResource("2_i8ws0")]
+transform = Transform3D(2.85627, 0, 0, 0, 1.66695, 0, 0, 0, 2.85627, 0.217543, -1.10515, 1.48707)
+
+[node name="Platform2" parent="." instance=ExtResource("2_i8ws0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.217543, 0.729184, -10.4899)
+
+[node name="Platform3" parent="." instance=ExtResource("2_i8ws0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.217543, 0.729184, -14.8105)
+
+[node name="Platform4" parent="." instance=ExtResource("2_i8ws0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.217543, 0.729184, -19.131)
+
+[node name="Platform5" parent="." instance=ExtResource("2_i8ws0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.217543, 0.729184, -23.4667)
+
+[node name="Platform6" parent="." instance=ExtResource("2_i8ws0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.1028, 2.69995, -34.503)
+
+[node name="Platform7" parent="." instance=ExtResource("2_i8ws0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 25.9803, 2.69995, -46.8004)
+
+[node name="Platform8" parent="." instance=ExtResource("2_i8ws0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 42.4914, -4.26171, -63.3343)
+
+[node name="Platform9" parent="." instance=ExtResource("2_i8ws0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 48.4736, -0.769057, -69.8039)
+
+[node name="Platform10" parent="." instance=ExtResource("2_i8ws0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 54.5842, 3.40411, -75.2872)
+
+[node name="Platform11" parent="." instance=ExtResource("2_i8ws0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 66.483, 4.71545, -82.5993)
+
+[node name="Platform12" parent="." instance=ExtResource("2_i8ws0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 80.5815, 4.71545, -89.6486)
+
+[node name="Platform13" parent="." instance=ExtResource("2_i8ws0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 95.8411, 4.71545, -90.0632)
+
+[node name="Platform14" parent="." instance=ExtResource("2_i8ws0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 110.787, 4.71545, -83.039)
+
+[node name="Platform15" parent="." instance=ExtResource("2_i8ws0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 107.278, 4.71545, -61.986)
+
+[node name="Platform16" parent="." instance=ExtResource("2_i8ws0")]
+transform = Transform3D(1.634, 0, 0, 0, 1.634, 0, 0, 0, 1.634, 100.206, 4.71545, -49.2732)
+
+[node name="EndPoint" type="Area3D" parent="Platform16"]
+transform = Transform3D(1.81183, 0, 0, 0, 1.81183, 0, 0, 0, 1.81183, -1.62126, 3.12662, 1.51469)
+
+[node name="EndCollision" type="CollisionShape3D" parent="Platform16/EndPoint"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.17825, 1.01545, -0.261047)
+shape = SubResource("BoxShape3D_1ohyw")
+
+[node name="Label" type="Label" parent="."]
+offset_left = 691.0
+offset_top = 785.0
+offset_right = 1067.0
+offset_bottom = 984.0
+scale = Vector2(1.48012, 1.48012)
+theme = SubResource("Theme_gjoex")
+theme_type_variation = &"HeaderLarge"
+text = "LEVEL ONE"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="body_entered" from="Platform16/EndPoint" to="Player" method="_on_end_point_body_entered"]

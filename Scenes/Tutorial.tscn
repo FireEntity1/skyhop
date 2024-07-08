@@ -15,13 +15,13 @@ ground_bottom_color = Color(0.829625, 0.727643, 0.636019, 1)
 ground_horizon_color = Color(0.968627, 0.513726, 0.247059, 1)
 ground_curve = 0.226274
 
-[sub_resource type="Sky" id="Sky_8kb7s"]
+[sub_resource type="Sky" id="Sky_8brc3"]
 sky_material = SubResource("ProceduralSkyMaterial_02te6")
 radiance_size = 1
 
 [sub_resource type="Environment" id="Environment_6ytex"]
 background_mode = 2
-sky = SubResource("Sky_8kb7s")
+sky = SubResource("Sky_8brc3")
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_teiis"]
 size = Vector3(4.34973, 7.81921, 4.67932)
@@ -31,6 +31,7 @@ size = Vector3(4.34973, 7.81921, 4.67932)
 [node name="Tutorial" type="Node3D"]
 
 [node name="Player" type="CharacterBody3D" parent="."]
+transform = Transform3D(-0.129626, 0, -0.991563, 0, 1, 0, 0.991563, 0, -0.129626, 0, 0, 0)
 script = ExtResource("1_aagc5")
 
 [node name="PlayerCollision" type="CollisionShape3D" parent="Player"]
@@ -79,10 +80,10 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 44.8039, -0.251579, 14.9572)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 43.9864, -0.258739, 23.9496)
 
 [node name="Platform11" parent="." instance=ExtResource("2_6owc4")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 55.6129, -0.261344, 27.2195)
+transform = Transform3D(1.81183, 0, 0, 0, 1.81183, 0, 0, 0, 1.81183, 56.0537, -1.23952, 27.1179)
 
 [node name="EndPoint" type="Area3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 54.5269, 2.14845, 27.4697)
+transform = Transform3D(1.81183, 0, 0, 0, 1.81183, 0, 0, 0, 1.81183, 54.0861, 3.12662, 27.5713)
 
 [node name="EndCollision" type="CollisionShape3D" parent="EndPoint"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.17825, 1.01545, -0.261047)
