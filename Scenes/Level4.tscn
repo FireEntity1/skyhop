@@ -15,12 +15,12 @@ ground_horizon_color = Color(0.26933, 0.276407, 0.287581, 1)
 sun_angle_max = 27.78
 sun_curve = 3.89881
 
-[sub_resource type="Sky" id="Sky_vamku"]
+[sub_resource type="Sky" id="Sky_0sfr2"]
 sky_material = SubResource("ProceduralSkyMaterial_hbb6y")
 
 [sub_resource type="Environment" id="Environment_bsjrm"]
 background_mode = 2
-sky = SubResource("Sky_vamku")
+sky = SubResource("Sky_0sfr2")
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_eq3kg"]
 size = Vector3(8.90262, 7.81921, 8.05948)

@@ -1,0 +1,63 @@
+[gd_scene load_steps=7 format=3 uid="uid://d3ufxc3ugfsm7"]
+
+[ext_resource type="Script" path="res://Scripts/Player.gd" id="1_yjist"]
+[ext_resource type="PackedScene" uid="uid://5ukhkedqdumi" path="res://Scenes/Platform2.tscn" id="2_df2nv"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_x11m6"]
+radius = 0.322304
+height = 1.37158
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_virus"]
+sky_top_color = Color(0, 0, 0, 1)
+sky_horizon_color = Color(1, 1, 1, 1)
+sky_curve = 0.00937503
+ground_bottom_color = Color(0, 0, 0, 1)
+ground_horizon_color = Color(1, 1, 1, 1)
+sun_angle_max = 56.67
+sun_curve = 3.63772
+
+[sub_resource type="Sky" id="Sky_slcux"]
+sky_material = SubResource("ProceduralSkyMaterial_virus")
+
+[sub_resource type="Environment" id="Environment_uwipi"]
+background_mode = 2
+sky = SubResource("Sky_slcux")
+
+[node name="Level6" type="Node3D"]
+
+[node name="Player" type="CharacterBody3D" parent="."]
+transform = Transform3D(-0.129626, 0, -0.991563, 0, 1, 0, 0.991563, 0, -0.129626, 0, 1.12834, 0)
+script = ExtResource("1_yjist")
+
+[node name="PlayerCollision" type="CollisionShape3D" parent="Player"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.613244, 0)
+shape = SubResource("CapsuleShape3D_x11m6")
+
+[node name="head" type="Node3D" parent="Player"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.935166, 0)
+
+[node name="PlayerCam" type="Camera3D" parent="Player/head"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0113506, 0.0689784, 0.0445242)
+current = true
+fov = 111.1
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_uwipi")
+
+[node name="Platform1" parent="." instance=ExtResource("2_df2nv")]
+transform = Transform3D(4.86534, 0, 0, 0, 0.51205, 0, 0, 0, 4.86534, -0.0598297, -1.19209e-07, -0.063338)
+
+[node name="Platform2" parent="." instance=ExtResource("2_df2nv")]
+transform = Transform3D(4.86534, 0, 0, 0, 0.448018, 2.35587, 0, -0.247942, 4.25693, -0.0598297, -1.19209e-07, 55.2595)
+
+[node name="Platform3" parent="." instance=ExtResource("2_df2nv")]
+transform = Transform3D(4.86534, 0, 0, 0, 0.481866, -1.64576, 0, 0.173207, 4.57854, -0.0598297, 14.3409, 45.5715)
+
+[node name="Platform4" parent="." instance=ExtResource("2_df2nv")]
+transform = Transform3D(4.86534, 0, 0, 0, 0.448018, 2.35587, 0, -0.247942, 4.25693, -0.0598297, 25.8407, 55.2595)
+
+[node name="Platform5" parent="." instance=ExtResource("2_df2nv")]
+transform = Transform3D(4.86534, 0, 0, 0, 0.481866, -1.64576, 0, 0.173207, 4.57854, -0.0598297, 40.1816, 45.5715)
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, -0.000419373, 6.13537e-05, -6.45773e-05, -0.00769115, 0.99997, -0.000418889, -0.99997, -0.00769117, -5.23406, 18.3709, -42.1758)

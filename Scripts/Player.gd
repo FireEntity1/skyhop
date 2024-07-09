@@ -2,7 +2,7 @@ extends CharacterBody3D
 
 
 var speed = 15
-const JUMP_VELOCITY = 10
+var JUMP_VELOCITY = 10
 @export var sensitivity = -0.1
 var capture = true
 var jumps = 1
@@ -12,6 +12,10 @@ var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 
 func _ready():
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+	if get_tree().current_scene.name == "Level6":
+		JUMP_VELOCITY = 28
+		gravity += 10
+		speed += 10
 
 func _physics_process(delta):
 	# Add the gravity.
@@ -69,4 +73,5 @@ func _on_end_point_body_entered(body):
 			"Level2" : get_tree().change_scene_to_file("res://Scenes/Level3.tscn")
 			"Level3" : get_tree().change_scene_to_file("res://Scenes/Level4.tscn")
 			"Level4" : get_tree().change_scene_to_file("res://Scenes/Level5.tscn")
+			"Level5" : get_tree().change_scene_to_file("res://Scenes/Level6.tscn")
 			

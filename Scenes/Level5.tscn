@@ -1,0 +1,98 @@
+[gd_scene load_steps=8 format=3 uid="uid://cx5y6e8w26mq"]
+
+[ext_resource type="Script" path="res://Scripts/Player.gd" id="1_tq7tt"]
+[ext_resource type="PackedScene" uid="uid://5ukhkedqdumi" path="res://Scenes/Platform2.tscn" id="2_3peov"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_55nqu"]
+sky_top_color = Color(0.0675368, 0.0728905, 0.0648755, 1)
+sky_horizon_color = Color(0.140096, 0.144502, 0.151458, 1)
+ground_bottom_color = Color(0.0445512, 0.0401506, 0.0339717, 1)
+ground_horizon_color = Color(0.148936, 0.153535, 0.160795, 1)
+sun_angle_max = 41.1
+sun_curve = 38.4001
+
+[sub_resource type="Sky" id="Sky_uwmxq"]
+sky_material = SubResource("ProceduralSkyMaterial_55nqu")
+
+[sub_resource type="Environment" id="Environment_xfrlw"]
+background_mode = 2
+sky = SubResource("Sky_uwmxq")
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_l7a4a"]
+radius = 0.322304
+height = 1.37158
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_pa4jr"]
+size = Vector3(8.90262, 7.81921, 8.05948)
+
+[node name="Level5" type="Node3D"]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_xfrlw")
+
+[node name="Player" type="CharacterBody3D" parent="."]
+transform = Transform3D(-0.129626, 0, -0.991563, 0, 1, 0, 0.991563, 0, -0.129626, 0, 1.12834, 0)
+script = ExtResource("1_tq7tt")
+
+[node name="PlayerCollision" type="CollisionShape3D" parent="Player"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.613244, 0)
+shape = SubResource("CapsuleShape3D_l7a4a")
+
+[node name="head" type="Node3D" parent="Player"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.935166, 0)
+
+[node name="PlayerCam" type="Camera3D" parent="Player/head"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0113506, 0.0689784, 0.0445242)
+current = true
+fov = 111.1
+
+[node name="Platform1" parent="." instance=ExtResource("2_3peov")]
+transform = Transform3D(2.09153, 0, 0, 0, 0.941925, 0, 0, 0, 2.09153, -0.0599447, 0, -0.452684)
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, -0.000419373, 6.13537e-05, -6.45773e-05, -0.00769115, 0.99997, -0.000418889, -0.99997, -0.00769117, -5.23406, 18.3709, -42.1758)
+
+[node name="Platform2" parent="." instance=ExtResource("2_3peov")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17.2474, 0, 0.491096)
+
+[node name="Platform3" parent="." instance=ExtResource("2_3peov")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 35.3579, 0, 0.546545)
+
+[node name="Platform4" parent="." instance=ExtResource("2_3peov")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 55.4146, 0, -0.608786)
+
+[node name="Platform5" parent="." instance=ExtResource("2_3peov")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 55.4146, 5.13007, -0.608786)
+
+[node name="Platform6" parent="." instance=ExtResource("2_3peov")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 44.105, 8.85127, -0.608786)
+
+[node name="Platform7" parent="." instance=ExtResource("2_3peov")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 32.3334, 11.3573, -0.608786)
+
+[node name="Platform8" parent="." instance=ExtResource("2_3peov")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 19.8152, 14.432, -0.608786)
+
+[node name="Platform9" parent="." instance=ExtResource("2_3peov")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.9945, 16.5911, -0.608786)
+
+[node name="Platform10" parent="." instance=ExtResource("2_3peov")]
+transform = Transform3D(10.9625, 0.497736, 0, -2.9879, 1.82618, 0, 0, 0, 1, -26.6519, 24.284, -0.634069)
+
+[node name="Platform11" parent="." instance=ExtResource("2_3peov")]
+transform = Transform3D(-0.815435, -0.0809984, -0.996503, -5.81923, 1.62572, 0, 9.72501, 0.966, -0.0835561, -50.7933, 18.4032, -26.5244)
+
+[node name="Platform12" parent="." instance=ExtResource("2_3peov")]
+transform = Transform3D(-9.73354, -0.966847, -0.0723853, -5.81923, 1.62572, 1.2221e-09, 0.706418, 0.0701697, -0.997377, -21.9123, 18.4032, -45.4745)
+
+[node name="Platform13" parent="." instance=ExtResource("2_3peov")]
+transform = Transform3D(3.05434, -3.02769e-07, -1.04308e-07, -2.14604e-06, 1.37553, 4.84311e-08, -1.49012e-08, 2.77473e-08, 3.05435, 14.8207, 18.088, -47.0954)
+
+[node name="EndPoint" type="Area3D" parent="."]
+transform = Transform3D(1.81183, 0, 0, 0, 1.81183, 0, 0, 0, 1.81183, 15.6906, 20.1308, -45.8113)
+
+[node name="EndCollision" type="CollisionShape3D" parent="EndPoint"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.856338, 1.01545, -0.696152)
+shape = SubResource("BoxShape3D_pa4jr")
+
+[connection signal="body_entered" from="EndPoint" to="Player" method="_on_end_point_body_entered"]
