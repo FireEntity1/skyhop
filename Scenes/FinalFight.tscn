@@ -1,8 +1,11 @@
-[gd_scene load_steps=8 format=3 uid="uid://8irgpak2p57r"]
+[gd_scene load_steps=13 format=3 uid="uid://8irgpak2p57r"]
 
 [ext_resource type="Script" path="res://Scripts/Player.gd" id="1_5wlcd"]
-[ext_resource type="Script" path="res://Scenes/AntagRed.gd" id="2_d1y5k"]
+[ext_resource type="Script" path="res://Scenes/FinalCountdown.gd" id="2_jtrso"]
 [ext_resource type="PackedScene" uid="uid://lf52wsneqqva" path="res://Scenes/Platform4.tscn" id="3_8rw7x"]
+[ext_resource type="FontFile" uid="uid://bgeegwo3mhbrf" path="res://Silkscreen-Regular.ttf" id="4_fqoky"]
+[ext_resource type="Script" path="res://Scenes/BossScene.gd" id="5_y84l0"]
+[ext_resource type="PackedScene" uid="uid://0yirj2mlwunj" path="res://Scenes/Platform3.tscn" id="6_rp4bo"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_736v8"]
 radius = 0.322304
@@ -26,10 +29,16 @@ fog_enabled = true
 volumetric_fog_enabled = true
 volumetric_fog_density = 0.2342
 
+[sub_resource type="Theme" id="Theme_ulku5"]
+default_font = ExtResource("4_fqoky")
+
+[sub_resource type="Theme" id="Theme_ugsiv"]
+default_font = ExtResource("4_fqoky")
+
 [node name="Node3D" type="Node3D"]
 
 [node name="Player" type="CharacterBody3D" parent="."]
-transform = Transform3D(-0.129626, 0, -0.991563, 0, 1, 0, 0.991563, 0, -0.129626, 0, 1.12834, 0)
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 1.12834, 0)
 script = ExtResource("1_5wlcd")
 
 [node name="PlayerCollision" type="CollisionShape3D" parent="Player"]
@@ -40,21 +49,166 @@ shape = SubResource("CapsuleShape3D_736v8")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.935166, 0)
 
 [node name="PlayerCam" type="Camera3D" parent="Player/head"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0113506, 0.0689784, 0.0445242)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0113506, 0.0689783, 0.0445242)
 current = true
 fov = 111.1
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_gpmlk")
-script = ExtResource("2_d1y5k")
+script = ExtResource("2_jtrso")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="WorldEnvironment"]
-transform = Transform3D(0.424994, -0.00714005, 0.905168, -0.905196, -0.00288954, 0.424984, -0.000418889, -0.99997, -0.00769118, -5.23406, 18.3709, -42.1758)
+transform = Transform3D(0.424994, -0.00714005, 0.905168, -0.905196, -0.00288954, 0.424984, -0.000418889, -0.99997, -0.00769118, 0.00255156, 18.3709, -0.398912)
 light_color = Color(1, 0, 0, 1)
 light_energy = 4.798
 light_indirect_energy = 5.17
-light_angular_distance = 21.86
+light_angular_distance = 20.0
 shadow_enabled = true
+
+[node name="Timer" type="Timer" parent="WorldEnvironment"]
+
+[node name="Label" type="Label" parent="WorldEnvironment"]
+offset_left = 1504.0
+offset_top = 68.0
+offset_right = 1544.0
+offset_bottom = 196.0
+theme = SubResource("Theme_ulku5")
+theme_override_font_sizes/font_size = 100
 
 [node name="Platform3" parent="." instance=ExtResource("3_8rw7x")]
 transform = Transform3D(21.8617, 0, 0, 0, 7.92297, 0, 0, 0, 21.8617, -0.280651, -7.65052, -0.0784953)
+
+[node name="AntagonistSpeak" type="Label" parent="."]
+offset_left = 191.0
+offset_top = 831.0
+offset_right = 1680.0
+offset_bottom = 1044.0
+theme = SubResource("Theme_ugsiv")
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_shadow_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 50
+text = "It's time for you to stop"
+horizontal_alignment = 1
+script = ExtResource("5_y84l0")
+
+[node name="Timer" type="Timer" parent="AntagonistSpeak"]
+wait_time = 0.001
+autostart = true
+
+[node name="Platform2" parent="." instance=ExtResource("6_rp4bo")]
+transform = Transform3D(1.73594, 0, 0, 0, 1.73594, 0, 0, 0, 1.73594, -42.7217, 0, -0.23767)
+
+[node name="Platform4" parent="." instance=ExtResource("6_rp4bo")]
+transform = Transform3D(1.73594, 0, 0, 0, 1.73594, 0, 0, 0, 1.73594, -54.1849, 0, -6.877)
+
+[node name="Platform5" parent="." instance=ExtResource("6_rp4bo")]
+transform = Transform3D(1.73594, 0, 0, 0, 1.73594, 0, 0, 0, 1.73594, -60.9798, 0, 5.88295)
+
+[node name="Platform6" parent="." instance=ExtResource("6_rp4bo")]
+transform = Transform3D(1.73594, 0, 0, 0, 1.73594, 0, 0, 0, 1.73594, -72.0281, 0, -0.911978)
+
+[node name="Platform7" parent="." instance=ExtResource("6_rp4bo")]
+transform = Transform3D(1.73594, 0, 0, 0, 1.73594, 0, 0, 0, 1.73594, -81.3647, 0, -11.649)
+
+[node name="Platform8" parent="." instance=ExtResource("6_rp4bo")]
+transform = Transform3D(1.73594, 0, 0, 0, 1.73594, 0, 0, 0, 1.73594, -93.8653, 0, -17.4065)
+
+[node name="Platform9" parent="." instance=ExtResource("6_rp4bo")]
+transform = Transform3D(1.73594, 0, 0, 0, 1.73594, 0, 0, 0, 1.73594, -102.528, 0, -7.24008)
+
+[node name="Platform10" parent="." instance=ExtResource("6_rp4bo")]
+transform = Transform3D(1.73594, 0, 0, 0, 1.73594, 0, 0, 0, 1.73594, -109.686, 0, 5.57174)
+
+[node name="Platform11" parent="." instance=ExtResource("6_rp4bo")]
+transform = Transform3D(1.73594, 0, 0, 0, 1.73594, 0, 0, 0, 1.73594, -89.0047, 0, 7.4934)
+
+[node name="Platform12" parent="." instance=ExtResource("6_rp4bo")]
+transform = Transform3D(1.73594, 0, 0, 0, 1.73594, 0, 0, 0, 1.73594, -122.039, 0, -15.2006)
+
+[node name="Platform13" parent="." instance=ExtResource("6_rp4bo")]
+transform = Transform3D(1.73594, 0, 0, 0, 1.73594, 0, 0, 0, 1.73594, -123.137, 0, -0.193261)
+
+[node name="Platform14" parent="." instance=ExtResource("6_rp4bo")]
+transform = Transform3D(1.73594, 0, 0, 0, 1.73594, 0, 0, 0, 1.73594, -138.785, 0, -23.4363)
+
+[node name="Platform15" parent="." instance=ExtResource("6_rp4bo")]
+transform = Transform3D(1.73594, 0, 0, 0, 1.73594, 0, 0, 0, 1.73594, -136.772, 0, 9.41507)
+
+[node name="Platform16" parent="." instance=ExtResource("6_rp4bo")]
+transform = Transform3D(1.73594, 0, 0, 0, 1.73594, 0, 0, 0, 1.73594, -150.132, 0, -9.06952)
+
+[node name="Platform17" parent="." instance=ExtResource("6_rp4bo")]
+transform = Transform3D(1.73594, 0, 0, 0, 1.73594, 0, 0, 0, 1.73594, -158.276, 0, 5.29722)
+
+[node name="Platform18" parent="." instance=ExtResource("6_rp4bo")]
+transform = Transform3D(1.73594, 0, 0, 0, 1.73594, 0, 0, 0, 1.73594, -173.101, 0, -19.959)
+
+[node name="Platform19" parent="." instance=ExtResource("6_rp4bo")]
+transform = Transform3D(1.73594, 0, 0, 0, 1.73594, 0, 0, 0, 1.73594, -168.891, 0, -4.95166)
+
+[node name="Platform20" parent="." instance=ExtResource("6_rp4bo")]
+transform = Transform3D(1.73594, 0, 0, 0, 1.73594, 0, 0, 0, 1.73594, -187.65, 0, -4.40261)
+
+[node name="Platform21" parent="." instance=ExtResource("6_rp4bo")]
+transform = Transform3D(1.73594, 0, 0, 0, 1.73594, 0, 0, 0, 1.73594, -196.059, 0, 6.68179)
+
+[node name="Platform22" parent="." instance=ExtResource("6_rp4bo")]
+transform = Transform3D(1.73594, 0, 0, 0, 1.73594, 0, 0, 0, 1.73594, -206.838, 0, -12.8879)
+
+[node name="Platform23" parent="." instance=ExtResource("6_rp4bo")]
+transform = Transform3D(1.73594, 0, 0, 0, 1.73594, 0, 0, 0, 1.73594, -224.204, 0, -41.0903)
+
+[node name="Platform24" parent="." instance=ExtResource("6_rp4bo")]
+transform = Transform3D(1.73594, 0, 0, 0, 1.73594, 0, 0, 0, 1.73594, -230.594, 0, -21.2236)
+
+[node name="Platform25" parent="." instance=ExtResource("6_rp4bo")]
+transform = Transform3D(1.73594, 0, 0, 0, 1.73594, 0, 0, 0, 1.73594, -246.154, 0, -40.5346)
+
+[node name="Platform26" parent="." instance=ExtResource("6_rp4bo")]
+transform = Transform3D(1.73594, 0, 0, 0, 1.73594, 0, 0, 0, 1.73594, -256.018, 0, -59.8456)
+
+[node name="Platform27" parent="." instance=ExtResource("6_rp4bo")]
+transform = Transform3D(1.73594, 0, 0, 0, 1.73594, 0, 0, 0, 1.73594, -274.774, 0, -52.2045)
+
+[node name="Platform28" parent="." instance=ExtResource("6_rp4bo")]
+transform = Transform3D(1.73594, 0, 0, 0, 1.73594, 0, 0, 0, 1.73594, -213.228, 0, 4.06131)
+
+[node name="Platform29" parent="." instance=ExtResource("6_rp4bo")]
+transform = Transform3D(1.73594, 0, 0, 0, 1.73594, 0, 0, 0, 1.73594, -227.677, 0, 21.0105)
+
+[node name="Platform30" parent="." instance=ExtResource("6_rp4bo")]
+transform = Transform3D(1.73594, 0, 0, 0, 1.73594, 0, 0, 0, 1.73594, -251.156, 0, 20.4548)
+
+[node name="Platform31" parent="." instance=ExtResource("6_rp4bo")]
+transform = Transform3D(1.73594, 0, 0, 0, 1.73594, 0, 0, 0, 1.73594, -242.403, 0, 34.6255)
+
+[node name="Platform32" parent="." instance=ExtResource("6_rp4bo")]
+transform = Transform3D(1.73594, 0, 0, 0, 1.73594, 0, 0, 0, 1.73594, -277.83, 0, 26.4287)
+
+[node name="Platform33" parent="." instance=ExtResource("6_rp4bo")]
+transform = Transform3D(1.73594, 0, 0, 0, 1.73594, 0, 0, 0, 1.73594, -295.613, 0, 9.61843)
+
+[node name="Platform34" parent="." instance=ExtResource("6_rp4bo")]
+transform = Transform3D(1.73594, 0, 0, 0, 1.73594, 0, 0, 0, 1.73594, -312.145, 0, -0.801176)
+
+[node name="Platform35" parent="." instance=ExtResource("6_rp4bo")]
+transform = Transform3D(1.73594, 0, 0, 0, 1.73594, 0, 0, 0, 1.73594, -300.058, 0, -17.6115)
+
+[node name="Platform36" parent="." instance=ExtResource("6_rp4bo")]
+transform = Transform3D(1.73594, 0, 0, 0, 1.73594, 0, 0, 0, 1.73594, -301.17, 0, -37.6171)
+
+[node name="Platform37" parent="." instance=ExtResource("6_rp4bo")]
+transform = Transform3D(1.73594, 0, 0, 0, 1.73594, 0, 0, 0, 1.73594, -284.221, 0, -37.8949)
+
+[node name="Platform38" parent="." instance=ExtResource("6_rp4bo")]
+transform = Transform3D(1.73594, 0, 0, 0, 1.73594, 0, 0, 0, 1.73594, -329.511, 0, -7.8865)
+
+[node name="Platform39" parent="." instance=ExtResource("6_rp4bo")]
+transform = Transform3D(1.73594, 0, 0, 0, 1.73594, 0, 0, 0, 1.73594, -350.35, 0, 0.58811)
+
+[node name="Platform40" parent="." instance=ExtResource("6_rp4bo")]
+transform = Transform3D(6.16654, 0, 0, 0, 6.16654, 0, 0, 0, 6.16654, -389.297, 0, -0.00378251)
+
+[connection signal="run" from="AntagonistSpeak" to="WorldEnvironment" method="_on_antagonist_speak_run"]
+[connection signal="timeout" from="AntagonistSpeak/Timer" to="AntagonistSpeak" method="_on_timer_timeout"]

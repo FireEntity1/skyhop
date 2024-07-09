@@ -1,0 +1,25 @@
+[gd_scene load_steps=2 format=3 uid="uid://chlueu85dwfvk"]
+
+[ext_resource type="PackedScene" uid="uid://dw56icovrywor" path="res://Models/orb.glb" id="1_da0pj"]
+
+[node name="orb" instance=ExtResource("1_da0pj")]
+transform = Transform3D(4.59864, 0, 0, 0, 4.59864, 0, 0, 0, 4.59864, 0, 0, 0)
+
+[node name="Sphere" parent="." index="0"]
+transform = Transform3D(1.31216, 0, 0, 0, 1.31216, 0, 0, 0, 1.31216, 0, 0, 0)
+
+[node name="SpotLight3D" type="SpotLight3D" parent="." index="1"]
+transform = Transform3D(0.217455, -9.49977e-09, -9.82888e-09, 9.49977e-09, -0.00740322, 0.217329, -9.82888e-09, -0.217329, -0.00740322, 0, 1.8849, 0)
+light_color = Color(1, 0, 0, 1)
+light_energy = 20.0
+light_size = 100000.0
+spot_range = 19.6709
+spot_angle = 59.8943
+
+[node name="SpotLight3D2" type="SpotLight3D" parent="." index="2"]
+transform = Transform3D(0.217455, -3.80211e-08, -8.30978e-16, 8.30978e-16, 9.50528e-09, -0.217455, 3.80211e-08, 0.217455, 9.50528e-09, 0, -3.50905, 0)
+light_color = Color(1, 0, 0, 1)
+light_energy = 20.0
+light_size = 100000.0
+spot_range = 19.6709
+spot_angle = 59.8943
