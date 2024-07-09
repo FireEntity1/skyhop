@@ -1,7 +1,10 @@
-[gd_scene load_steps=7 format=3 uid="uid://gh1pgmqhwaba"]
+[gd_scene load_steps=11 format=3 uid="uid://gh1pgmqhwaba"]
 
 [ext_resource type="Script" path="res://Scripts/Player.gd" id="1_rdn2v"]
 [ext_resource type="PackedScene" uid="uid://0yirj2mlwunj" path="res://Scenes/Platform3.tscn" id="2_f3iwm"]
+[ext_resource type="Script" path="res://Scenes/AntagRed.gd" id="2_u43lc"]
+[ext_resource type="FontFile" uid="uid://bgeegwo3mhbrf" path="res://Silkscreen-Regular.ttf" id="3_vxhfd"]
+[ext_resource type="Script" path="res://Scenes/Cutscene2.gd" id="4_bbyi6"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_b8jkj"]
 radius = 0.322304
@@ -15,14 +18,18 @@ ground_horizon_color = Color(0, 0, 0, 1)
 sun_angle_max = 13.22
 sun_curve = 108.611
 
-[sub_resource type="Sky" id="Sky_ltpyr"]
+[sub_resource type="Sky" id="Sky_iabx7"]
 sky_material = SubResource("ProceduralSkyMaterial_i3m0t")
 
 [sub_resource type="Environment" id="Environment_g12fy"]
 background_mode = 2
-sky = SubResource("Sky_ltpyr")
+sky = SubResource("Sky_iabx7")
+fog_enabled = true
 volumetric_fog_enabled = true
 volumetric_fog_density = 0.2342
+
+[sub_resource type="Theme" id="Theme_bcv20"]
+default_font = ExtResource("3_vxhfd")
 
 [node name="Final" type="Node3D"]
 
@@ -44,6 +51,7 @@ fov = 111.1
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_g12fy")
+script = ExtResource("2_u43lc")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="WorldEnvironment"]
 transform = Transform3D(0.250368, -0.00755109, 0.968121, -0.968151, -0.00152009, 0.250364, -0.000418889, -0.99997, -0.00769118, -5.23406, 18.3709, -42.1758)
@@ -64,3 +72,32 @@ transform = Transform3D(3.41633, 0, 0, 0, 1.23616, 0, 0, 0, 3.41633, 52.8528, 0,
 
 [node name="Platform6" parent="." instance=ExtResource("2_f3iwm")]
 transform = Transform3D(3.41633, 0, 0, 0, 1.23616, 0, 0, 0, 3.41633, 75.3899, 0, 0.102776)
+
+[node name="Platform7" parent="." instance=ExtResource("2_f3iwm")]
+transform = Transform3D(3.41633, 0, 0, 0, 1.23616, 0, 0, 0, 3.41633, 97.9823, 0, 0.102776)
+
+[node name="Platform8" parent="." instance=ExtResource("2_f3iwm")]
+transform = Transform3D(3.41633, 0, 0, 0, 1.23616, 0, 0, 0, 3.41633, 123.213, 0, 0.102776)
+
+[node name="Platform9" parent="." instance=ExtResource("2_f3iwm")]
+transform = Transform3D(23.9519, 0, 0, 0, 5.83104, 0, 0, 0, 23.9519, 171.577, 0, 0.102776)
+
+[node name="AntagonistSpeak" type="Label" parent="."]
+offset_left = 191.0
+offset_top = 831.0
+offset_right = 1680.0
+offset_bottom = 1044.0
+theme = SubResource("Theme_bcv20")
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 50
+horizontal_alignment = 1
+script = ExtResource("4_bbyi6")
+
+[node name="Timer" type="Timer" parent="AntagonistSpeak"]
+wait_time = 0.001
+autostart = true
+
+[connection signal="Change" from="AntagonistSpeak" to="WorldEnvironment" method="_on_antagonist_speak_change"]
+[connection signal="timeout" from="AntagonistSpeak/Timer" to="AntagonistSpeak" method="_on_timer_timeout"]

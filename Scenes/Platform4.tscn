@@ -1,0 +1,35 @@
+[gd_scene load_steps=6 format=3 uid="uid://lf52wsneqqva"]
+
+[ext_resource type="PackedScene" uid="uid://bfeqnagr7j22o" path="res://Models/Platform3.glb" id="1_oyop5"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_ylhom"]
+height = 1.33811
+radius = 0.904506
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_3r00u"]
+height = 1.21363
+radius = 1.31442
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_ncmye"]
+height = 1.0634
+radius = 1.47324
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_efoi8"]
+height = 1.44649
+radius = 0.346467
+
+[node name="Platform3" instance=ExtResource("1_oyop5")]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="." index="1"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" index="0"]
+shape = SubResource("CylinderShape3D_ylhom")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="StaticBody3D" index="1"]
+shape = SubResource("CylinderShape3D_3r00u")
+
+[node name="CollisionShape3D4" type="CollisionShape3D" parent="StaticBody3D" index="2"]
+shape = SubResource("CylinderShape3D_ncmye")
+
+[node name="CollisionShape3D3" type="CollisionShape3D" parent="StaticBody3D" index="3"]
+shape = SubResource("CylinderShape3D_efoi8")

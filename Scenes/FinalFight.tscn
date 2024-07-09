@@ -1,0 +1,60 @@
+[gd_scene load_steps=8 format=3 uid="uid://8irgpak2p57r"]
+
+[ext_resource type="Script" path="res://Scripts/Player.gd" id="1_5wlcd"]
+[ext_resource type="Script" path="res://Scenes/AntagRed.gd" id="2_d1y5k"]
+[ext_resource type="PackedScene" uid="uid://lf52wsneqqva" path="res://Scenes/Platform4.tscn" id="3_8rw7x"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_736v8"]
+radius = 0.322304
+height = 1.37158
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_cwui0"]
+sky_top_color = Color(0, 0, 0, 1)
+sky_horizon_color = Color(0, 0, 0, 1)
+ground_bottom_color = Color(0, 0, 0, 1)
+ground_horizon_color = Color(0, 0, 0, 1)
+sun_angle_max = 13.22
+sun_curve = 108.611
+
+[sub_resource type="Sky" id="Sky_ltpyr"]
+sky_material = SubResource("ProceduralSkyMaterial_cwui0")
+
+[sub_resource type="Environment" id="Environment_gpmlk"]
+background_mode = 2
+sky = SubResource("Sky_ltpyr")
+fog_enabled = true
+volumetric_fog_enabled = true
+volumetric_fog_density = 0.2342
+
+[node name="Node3D" type="Node3D"]
+
+[node name="Player" type="CharacterBody3D" parent="."]
+transform = Transform3D(-0.129626, 0, -0.991563, 0, 1, 0, 0.991563, 0, -0.129626, 0, 1.12834, 0)
+script = ExtResource("1_5wlcd")
+
+[node name="PlayerCollision" type="CollisionShape3D" parent="Player"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.613244, 0)
+shape = SubResource("CapsuleShape3D_736v8")
+
+[node name="head" type="Node3D" parent="Player"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.935166, 0)
+
+[node name="PlayerCam" type="Camera3D" parent="Player/head"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0113506, 0.0689784, 0.0445242)
+current = true
+fov = 111.1
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_gpmlk")
+script = ExtResource("2_d1y5k")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="WorldEnvironment"]
+transform = Transform3D(0.424994, -0.00714005, 0.905168, -0.905196, -0.00288954, 0.424984, -0.000418889, -0.99997, -0.00769118, -5.23406, 18.3709, -42.1758)
+light_color = Color(1, 0, 0, 1)
+light_energy = 4.798
+light_indirect_energy = 5.17
+light_angular_distance = 21.86
+shadow_enabled = true
+
+[node name="Platform3" parent="." instance=ExtResource("3_8rw7x")]
+transform = Transform3D(21.8617, 0, 0, 0, 7.92297, 0, 0, 0, 21.8617, -0.280651, -7.65052, -0.0784953)

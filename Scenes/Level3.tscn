@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://cma7q81q6ntb3"]
+[gd_scene load_steps=8 format=3 uid="uid://cma7q81q6ntb3"]
 
 [ext_resource type="Script" path="res://Scripts/Player.gd" id="1_ynwbk"]
 [ext_resource type="PackedScene" uid="uid://rv2kgpgykjsh" path="res://Scenes/Platform1.tscn" id="2_6sgcm"]
@@ -24,8 +24,6 @@ sky = SubResource("Sky_tci8u")
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_ooobq"]
 size = Vector3(8.90262, 7.81921, 8.05948)
-
-[sub_resource type="Theme" id="Theme_si4va"]
 
 [node name="Level3" type="Node3D"]
 
@@ -108,17 +106,5 @@ transform = Transform3D(1.81183, 0, 0, 0, 1.81183, 0, 0, 0, 1.81183, 83.3313, -2
 [node name="EndCollision" type="CollisionShape3D" parent="EndPoint"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.856338, 1.01545, -0.696152)
 shape = SubResource("BoxShape3D_ooobq")
-
-[node name="Label" type="Label" parent="."]
-offset_left = 691.0
-offset_top = 785.0
-offset_right = 1067.0
-offset_bottom = 984.0
-scale = Vector2(1.48012, 1.48012)
-theme = SubResource("Theme_si4va")
-theme_type_variation = &"HeaderLarge"
-text = "LEVEL THREE"
-horizontal_alignment = 1
-vertical_alignment = 1
 
 [connection signal="body_entered" from="EndPoint" to="Player" method="_on_end_point_body_entered"]

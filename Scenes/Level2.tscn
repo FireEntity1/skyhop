@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://d00x6q3bpj0xv"]
+[gd_scene load_steps=8 format=3 uid="uid://d00x6q3bpj0xv"]
 
 [ext_resource type="Script" path="res://Scripts/Player.gd" id="1_hejfg"]
 [ext_resource type="PackedScene" uid="uid://rv2kgpgykjsh" path="res://Scenes/Platform1.tscn" id="2_xonxn"]
@@ -21,8 +21,6 @@ sky_material = SubResource("ProceduralSkyMaterial_8d73j")
 [sub_resource type="Environment" id="Environment_eabiy"]
 background_mode = 2
 sky = SubResource("Sky_kfyfd")
-
-[sub_resource type="Theme" id="Theme_j7ap4"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_6b6og"]
 size = Vector3(8.90262, 7.81921, 8.05948)
@@ -113,18 +111,6 @@ transform = Transform3D(1.27786, 0, 0, 0, 1.27786, 0, 0, 0, 1.27786, -0.0523453,
 
 [node name="Platform22" parent="." instance=ExtResource("2_xonxn")]
 transform = Transform3D(3.70569, 0, 0, 0, 2.30147, 0, 0, 0, 3.70569, -22.1129, -0.257139, 135.01)
-
-[node name="Label" type="Label" parent="."]
-offset_left = 691.0
-offset_top = 785.0
-offset_right = 1067.0
-offset_bottom = 984.0
-scale = Vector2(1.48012, 1.48012)
-theme = SubResource("Theme_j7ap4")
-theme_type_variation = &"HeaderLarge"
-text = "LEVEL TWO"
-horizontal_alignment = 1
-vertical_alignment = 1
 
 [node name="EndPoint" type="Area3D" parent="."]
 transform = Transform3D(1.81183, 0, 0, 0, 1.81183, 0, 0, 0, 1.81183, -23.1068, 3.12662, 136.079)
