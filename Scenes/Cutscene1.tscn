@@ -1,5 +1,6 @@
-[gd_scene load_steps=5 format=3 uid="uid://bhxlpm4jgxeey"]
+[gd_scene load_steps=6 format=3 uid="uid://bhxlpm4jgxeey"]
 
+[ext_resource type="Texture2D" uid="uid://cssmh6bg2lrp4" path="res://Models/blackbg.png" id="1_a68g5"]
 [ext_resource type="Texture2D" uid="uid://ctk6vfwegbgf7" path="res://Models/antagonist.png" id="1_ksktf"]
 [ext_resource type="FontFile" uid="uid://bgeegwo3mhbrf" path="res://Silkscreen-Regular.ttf" id="2_8fymt"]
 [ext_resource type="Script" path="res://Scenes/Cutscene1.gd" id="3_mvqvs"]
@@ -8,6 +9,11 @@
 default_font = ExtResource("2_8fymt")
 
 [node name="Cutscene1" type="Node2D"]
+
+[node name="BG" type="Sprite2D" parent="."]
+position = Vector2(976, 605)
+scale = Vector2(3.48953, 3.48953)
+texture = ExtResource("1_a68g5")
 
 [node name="Antagonist" type="Sprite2D" parent="."]
 position = Vector2(960, 536)

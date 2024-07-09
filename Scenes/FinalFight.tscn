@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://8irgpak2p57r"]
+[gd_scene load_steps=14 format=3 uid="uid://8irgpak2p57r"]
 
 [ext_resource type="Script" path="res://Scripts/Player.gd" id="1_5wlcd"]
 [ext_resource type="Script" path="res://Scenes/FinalCountdown.gd" id="2_jtrso"]
@@ -19,12 +19,12 @@ ground_horizon_color = Color(0, 0, 0, 1)
 sun_angle_max = 13.22
 sun_curve = 108.611
 
-[sub_resource type="Sky" id="Sky_ltpyr"]
+[sub_resource type="Sky" id="Sky_4btg6"]
 sky_material = SubResource("ProceduralSkyMaterial_cwui0")
 
 [sub_resource type="Environment" id="Environment_gpmlk"]
 background_mode = 2
-sky = SubResource("Sky_ltpyr")
+sky = SubResource("Sky_4btg6")
 fog_enabled = true
 volumetric_fog_enabled = true
 volumetric_fog_density = 0.2342
@@ -34,6 +34,9 @@ default_font = ExtResource("4_fqoky")
 
 [sub_resource type="Theme" id="Theme_ugsiv"]
 default_font = ExtResource("4_fqoky")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_60mu2"]
+size = Vector3(7.07442, 7.34912, 70.0815)
 
 [node name="Node3D" type="Node3D"]
 
@@ -68,10 +71,10 @@ shadow_enabled = true
 [node name="Timer" type="Timer" parent="WorldEnvironment"]
 
 [node name="Label" type="Label" parent="WorldEnvironment"]
-offset_left = 1504.0
-offset_top = 68.0
-offset_right = 1544.0
-offset_bottom = 196.0
+offset_left = 1479.0
+offset_top = 62.0
+offset_right = 1892.0
+offset_bottom = 190.0
 theme = SubResource("Theme_ulku5")
 theme_override_font_sizes/font_size = 100
 
@@ -95,6 +98,8 @@ script = ExtResource("5_y84l0")
 [node name="Timer" type="Timer" parent="AntagonistSpeak"]
 wait_time = 0.001
 autostart = true
+
+[node name="Timer2" type="Timer" parent="AntagonistSpeak"]
 
 [node name="Platform2" parent="." instance=ExtResource("6_rp4bo")]
 transform = Transform3D(1.73594, 0, 0, 0, 1.73594, 0, 0, 0, 1.73594, -42.7217, 0, -0.23767)
@@ -210,5 +215,16 @@ transform = Transform3D(1.73594, 0, 0, 0, 1.73594, 0, 0, 0, 1.73594, -350.35, 0,
 [node name="Platform40" parent="." instance=ExtResource("6_rp4bo")]
 transform = Transform3D(6.16654, 0, 0, 0, 6.16654, 0, 0, 0, 6.16654, -389.297, 0, -0.00378251)
 
+[node name="EndPoint" type="Area3D" parent="."]
+transform = Transform3D(1.81183, 0, 0, 0, 1.81183, 0, 0, 0, 1.81183, -414.048, -9.33215, -2.75832)
+
+[node name="EndCollision" type="CollisionShape3D" parent="EndPoint"]
+transform = Transform3D(0.999934, 0, 0, 0, 0.999934, 0, 0, 0, 0.999934, 13.5492, 9.06308, -3.87729)
+shape = SubResource("BoxShape3D_60mu2")
+
+[connection signal="timeout" from="WorldEnvironment/Timer" to="WorldEnvironment" method="_on_timer_timeout"]
 [connection signal="run" from="AntagonistSpeak" to="WorldEnvironment" method="_on_antagonist_speak_run"]
 [connection signal="timeout" from="AntagonistSpeak/Timer" to="AntagonistSpeak" method="_on_timer_timeout"]
+[connection signal="timeout" from="AntagonistSpeak/Timer2" to="AntagonistSpeak" method="_on_timer_2_timeout"]
+[connection signal="body_entered" from="EndPoint" to="WorldEnvironment" method="_on_end_point_body_entered"]
+[connection signal="body_entered" from="EndPoint" to="AntagonistSpeak" method="_on_end_point_body_entered"]

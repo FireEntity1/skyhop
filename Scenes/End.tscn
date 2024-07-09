@@ -1,0 +1,79 @@
+[gd_scene load_steps=11 format=3 uid="uid://b64k3fapujmty"]
+
+[ext_resource type="Script" path="res://Scenes/End.gd" id="1_4ea4n"]
+[ext_resource type="Script" path="res://Scenes/FinalCountdown.gd" id="1_41o08"]
+[ext_resource type="Script" path="res://Scripts/Player.gd" id="2_mvwqx"]
+[ext_resource type="PackedScene" uid="uid://5ukhkedqdumi" path="res://Scenes/Platform2.tscn" id="3_c8gyw"]
+[ext_resource type="FontFile" uid="uid://bgeegwo3mhbrf" path="res://Silkscreen-Regular.ttf" id="4_l8qgx"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_ev1q7"]
+sky_top_color = Color(0, 0, 0, 1)
+sky_horizon_color = Color(0, 0, 0, 1)
+ground_bottom_color = Color(0, 0, 0, 1)
+ground_horizon_color = Color(0, 0, 0, 1)
+sun_angle_max = 13.22
+sun_curve = 108.611
+
+[sub_resource type="Sky" id="Sky_ltpyr"]
+sky_material = SubResource("ProceduralSkyMaterial_ev1q7")
+
+[sub_resource type="Environment" id="Environment_ev2m5"]
+background_mode = 2
+sky = SubResource("Sky_ltpyr")
+fog_enabled = true
+volumetric_fog_enabled = true
+volumetric_fog_density = 0.2342
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_ubey5"]
+radius = 0.322304
+height = 1.37158
+
+[sub_resource type="Theme" id="Theme_h138w"]
+default_font = ExtResource("4_l8qgx")
+
+[node name="End" type="Node3D"]
+script = ExtResource("1_4ea4n")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_ev2m5")
+script = ExtResource("1_41o08")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="WorldEnvironment"]
+transform = Transform3D(0.424994, -0.00714005, 0.905168, -0.905196, -0.00288954, 0.424984, -0.000418889, -0.99997, -0.00769118, 0.00255156, 18.3709, -0.398912)
+light_energy = 2.131
+light_indirect_energy = 5.17
+shadow_enabled = true
+
+[node name="Player" type="CharacterBody3D" parent="."]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 1.12834, 0)
+script = ExtResource("2_mvwqx")
+
+[node name="PlayerCollision" type="CollisionShape3D" parent="Player"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.613244, 0)
+shape = SubResource("CapsuleShape3D_ubey5")
+
+[node name="head" type="Node3D" parent="Player"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.935166, 0)
+
+[node name="PlayerCam" type="Camera3D" parent="Player/head"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0113506, 0.0689783, 0.0445242)
+current = true
+fov = 111.1
+
+[node name="Platform1" parent="." instance=ExtResource("3_c8gyw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00850821, -0.641798, -0.00212718)
+
+[node name="Label" type="Label" parent="."]
+offset_left = 114.0
+offset_top = 880.0
+offset_right = 1782.0
+offset_bottom = 1022.0
+theme = SubResource("Theme_h138w")
+theme_override_font_sizes/font_size = 110
+text = "Thank you for playing!"
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 8.0
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
