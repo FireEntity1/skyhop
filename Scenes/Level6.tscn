@@ -1,7 +1,8 @@
-[gd_scene load_steps=7 format=3 uid="uid://d3ufxc3ugfsm7"]
+[gd_scene load_steps=9 format=3 uid="uid://d3ufxc3ugfsm7"]
 
 [ext_resource type="Script" path="res://Scripts/Player.gd" id="1_yjist"]
 [ext_resource type="PackedScene" uid="uid://5ukhkedqdumi" path="res://Scenes/Platform2.tscn" id="2_df2nv"]
+[ext_resource type="PackedScene" uid="uid://rv2kgpgykjsh" path="res://Scenes/Platform1.tscn" id="3_h3dna"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_x11m6"]
 radius = 0.322304
@@ -16,12 +17,15 @@ ground_horizon_color = Color(1, 1, 1, 1)
 sun_angle_max = 56.67
 sun_curve = 3.63772
 
-[sub_resource type="Sky" id="Sky_slcux"]
+[sub_resource type="Sky" id="Sky_51yx6"]
 sky_material = SubResource("ProceduralSkyMaterial_virus")
 
 [sub_resource type="Environment" id="Environment_uwipi"]
 background_mode = 2
-sky = SubResource("Sky_slcux")
+sky = SubResource("Sky_51yx6")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_c50vd"]
+size = Vector3(87.0862, 21.5332, 70.0815)
 
 [node name="Level6" type="Node3D"]
 
@@ -50,14 +54,50 @@ transform = Transform3D(4.86534, 0, 0, 0, 0.51205, 0, 0, 0, 4.86534, -0.0598297,
 [node name="Platform2" parent="." instance=ExtResource("2_df2nv")]
 transform = Transform3D(4.86534, 0, 0, 0, 0.448018, 2.35587, 0, -0.247942, 4.25693, -0.0598297, -1.19209e-07, 55.2595)
 
-[node name="Platform3" parent="." instance=ExtResource("2_df2nv")]
-transform = Transform3D(4.86534, 0, 0, 0, 0.481866, -1.64576, 0, 0.173207, 4.57854, -0.0598297, 14.3409, 45.5715)
-
 [node name="Platform4" parent="." instance=ExtResource("2_df2nv")]
-transform = Transform3D(4.86534, 0, 0, 0, 0.448018, 2.35587, 0, -0.247942, 4.25693, -0.0598297, 25.8407, 55.2595)
+transform = Transform3D(4.86534, 0, 0, 0, 0.448018, 2.35587, 0, -0.247942, 4.25693, -0.0598297, 18.7788, 55.2595)
 
 [node name="Platform5" parent="." instance=ExtResource("2_df2nv")]
-transform = Transform3D(4.86534, 0, 0, 0, 0.481866, -1.64576, 0, 0.173207, 4.57854, -0.0598297, 40.1816, 45.5715)
+transform = Transform3D(4.86534, 0, 0, 0, 0.448018, 2.35587, 0, -0.247942, 4.25693, -0.0598297, 42.5254, 54.9504)
+
+[node name="Platform6" parent="." instance=ExtResource("2_df2nv")]
+transform = Transform3D(4.86534, 0, 0, 0, 0.433835, 2.58443, 0, -0.271997, 4.12217, -0.0598297, 75.5981, 91.8295)
+
+[node name="Platform7" parent="." instance=ExtResource("2_df2nv")]
+transform = Transform3D(4.86534, 0, 0, 0, 0.502352, -0.942435, 0, 0.0991859, 4.7732, -0.0598297, 99.2189, 55.4054)
+
+[node name="Platform8" parent="." instance=ExtResource("2_df2nv")]
+transform = Transform3D(4.76001, 0.105972, 0, -1.00691, 0.500964, 0, 0, 0, 4.86534, -39.8772, 129.56, 73.0409)
+
+[node name="Platform10" parent="." instance=ExtResource("2_df2nv")]
+transform = Transform3D(4.76001, 0.105972, 0, -1.00691, 0.500964, 0, 0, 0, 4.86534, -39.8772, 242.204, -226.146)
+
+[node name="Platform11" parent="." instance=ExtResource("2_df2nv")]
+transform = Transform3D(4.76204, -0.104957, 0, 0.994873, 0.499973, -0.337102, 0.0690972, 0.0347248, 4.85365, -39.8772, 250.636, -361.657)
+
+[node name="Platform12" parent="." instance=ExtResource("2_df2nv")]
+transform = Transform3D(4.85717, 0.0281998, -0.0873621, -0.278026, 0.505439, -0.727984, 0.0461422, 0.077013, 4.80978, -39.8772, 232.88, -493.186)
+
+[node name="Platform13" parent="." instance=ExtResource("2_df2nv")]
+transform = Transform3D(4.81213, -0.0275573, 0.668093, 0.42755, 0.492988, -1.2437, -0.576289, 0.13564, 4.65601, -39.8772, 242.281, -609.442)
+
+[node name="Platform9" parent="." instance=ExtResource("2_df2nv")]
+transform = Transform3D(4.86534, 0, 0, 0, 1.35256, -17.3548, 0, 0.496386, 47.2885, -39.052, 183.985, -89.5734)
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(1, -0.000419373, 6.13537e-05, -6.45773e-05, -0.00769115, 0.99997, -0.000418889, -0.99997, -0.00769117, -5.23406, 18.3709, -42.1758)
+light_energy = 4.798
+light_indirect_energy = 5.17
+light_angular_distance = 38.64
+
+[node name="Platform3" parent="." instance=ExtResource("3_h3dna")]
+transform = Transform3D(40.1872, 0, 0, 0, 8.70157, 0, 0, 0, 40.1872, -47.3046, 244.27, -801.397)
+
+[node name="EndPoint" type="Area3D" parent="."]
+transform = Transform3D(1.81183, 0, 0, 0, 1.81183, 0, 0, 0, 1.81183, -50.1078, 260.608, -805.926)
+
+[node name="EndCollision" type="CollisionShape3D" parent="EndPoint"]
+transform = Transform3D(0.999957, 0, 0, 0, 0.999957, 0, 0, 0, 0.999957, 1.78241, 1.97147, -3.87729)
+shape = SubResource("BoxShape3D_c50vd")
+
+[connection signal="body_entered" from="EndPoint" to="Player" method="_on_end_point_body_entered"]

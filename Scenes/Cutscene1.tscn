@@ -1,0 +1,35 @@
+[gd_scene load_steps=5 format=3 uid="uid://bhxlpm4jgxeey"]
+
+[ext_resource type="Texture2D" uid="uid://ctk6vfwegbgf7" path="res://Models/antagonist.png" id="1_ksktf"]
+[ext_resource type="FontFile" uid="uid://bgeegwo3mhbrf" path="res://Silkscreen-Regular.ttf" id="2_8fymt"]
+[ext_resource type="Script" path="res://Scenes/Cutscene1.gd" id="3_mvqvs"]
+
+[sub_resource type="Theme" id="Theme_5af5l"]
+default_font = ExtResource("2_8fymt")
+
+[node name="Cutscene1" type="Node2D"]
+
+[node name="Antagonist" type="Sprite2D" parent="."]
+position = Vector2(960, 536)
+scale = Vector2(1.05092, 1.05092)
+texture = ExtResource("1_ksktf")
+
+[node name="AntagonistSpeak" type="Label" parent="."]
+offset_left = 191.0
+offset_top = 831.0
+offset_right = 1680.0
+offset_bottom = 1044.0
+theme = SubResource("Theme_5af5l")
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_shadow_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 50
+text = "You've made it farther than most"
+horizontal_alignment = 1
+script = ExtResource("3_mvqvs")
+
+[node name="Timer" type="Timer" parent="AntagonistSpeak"]
+wait_time = 0.001
+autostart = true
+
+[connection signal="timeout" from="AntagonistSpeak/Timer" to="AntagonistSpeak" method="_on_timer_timeout"]

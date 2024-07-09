@@ -1,0 +1,21 @@
+[gd_scene load_steps=3 format=3 uid="uid://0yirj2mlwunj"]
+
+[ext_resource type="PackedScene" uid="uid://3w3pbp3foi5" path="res://Models/Platform2.glb" id="1_nw1tr"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_v5p7v"]
+height = 0.426087
+radius = 0.694848
+
+[node name="Platform2" instance=ExtResource("1_nw1tr")]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Circle" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.367489, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Circle/StaticBody3D" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00197983, 0.369376, 0.00175536)
+shape = SubResource("CylinderShape3D_v5p7v")
+
+[node name="SpotLight3D" type="SpotLight3D" parent="Circle" index="1"]
+transform = Transform3D(0.641672, 0, 0, 0, 7.65186e-09, 0.641672, 0, -0.641672, 7.65186e-09, 0, 1.20572, 0.138042)
+light_energy = 5.8
+spot_angle = 63.18
