@@ -1,7 +1,9 @@
-[gd_scene load_steps=9 format=3 uid="uid://d3ufxc3ugfsm7"]
+[gd_scene load_steps=11 format=3 uid="uid://d3ufxc3ugfsm7"]
 
 [ext_resource type="Script" path="res://Scripts/Player.gd" id="1_yjist"]
+[ext_resource type="AudioStream" uid="uid://c2en28dpn56yn" path="res://Audio/646661__sounddesignforyou__landing-on-the-ground-1.wav" id="2_6643w"]
 [ext_resource type="PackedScene" uid="uid://5ukhkedqdumi" path="res://Scenes/Platform2.tscn" id="2_df2nv"]
+[ext_resource type="AudioStream" uid="uid://c75pgvfrhoj0r" path="res://Audio/745142__twotrickpony__unreality-atmospheric-loop.mp3" id="3_22v3b"]
 [ext_resource type="PackedScene" uid="uid://rv2kgpgykjsh" path="res://Scenes/Platform1.tscn" id="3_h3dna"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_x11m6"]
@@ -44,6 +46,15 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.935166, 0)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0113506, 0.0689784, 0.0445242)
 current = true
 fov = 111.1
+
+[node name="SlamSFX" type="AudioStreamPlayer" parent="Player"]
+stream = ExtResource("2_6643w")
+
+[node name="Music" type="AudioStreamPlayer3D" parent="Player"]
+transform = Transform3D(-0.129626, 0, 0.991563, 0, 1, 0, -0.991563, 0, -0.129626, 0, 0, 0)
+stream = ExtResource("3_22v3b")
+volume_db = 22.343
+autoplay = true
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_uwipi")

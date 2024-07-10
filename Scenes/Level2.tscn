@@ -1,7 +1,9 @@
-[gd_scene load_steps=8 format=3 uid="uid://d00x6q3bpj0xv"]
+[gd_scene load_steps=10 format=3 uid="uid://d00x6q3bpj0xv"]
 
 [ext_resource type="Script" path="res://Scripts/Player.gd" id="1_hejfg"]
+[ext_resource type="AudioStream" uid="uid://c2en28dpn56yn" path="res://Audio/646661__sounddesignforyou__landing-on-the-ground-1.wav" id="2_dxp0l"]
 [ext_resource type="PackedScene" uid="uid://rv2kgpgykjsh" path="res://Scenes/Platform1.tscn" id="2_xonxn"]
+[ext_resource type="AudioStream" uid="uid://dgj0rrbyf7if0" path="res://Audio/piano2.wav" id="3_3ltvf"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_e80ck"]
 radius = 0.322304
@@ -42,6 +44,15 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.935166, 0)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0113506, 0.0689784, 0.0445242)
 current = true
 fov = 111.1
+
+[node name="SlamSFX" type="AudioStreamPlayer" parent="Player"]
+stream = ExtResource("2_dxp0l")
+
+[node name="Music" type="AudioStreamPlayer3D" parent="Player"]
+transform = Transform3D(-0.129626, 0, 0.991563, 0, 1, 0, -0.991563, 0, -0.129626, 0, 0, 0)
+stream = ExtResource("3_3ltvf")
+volume_db = -4.324
+autoplay = true
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_eabiy")

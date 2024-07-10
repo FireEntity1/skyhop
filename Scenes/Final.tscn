@@ -1,6 +1,7 @@
-[gd_scene load_steps=11 format=3 uid="uid://gh1pgmqhwaba"]
+[gd_scene load_steps=12 format=3 uid="uid://gh1pgmqhwaba"]
 
 [ext_resource type="Script" path="res://Scripts/Player.gd" id="1_rdn2v"]
+[ext_resource type="AudioStream" uid="uid://c2en28dpn56yn" path="res://Audio/646661__sounddesignforyou__landing-on-the-ground-1.wav" id="2_4s1tc"]
 [ext_resource type="PackedScene" uid="uid://0yirj2mlwunj" path="res://Scenes/Platform3.tscn" id="2_f3iwm"]
 [ext_resource type="Script" path="res://Scenes/AntagRed.gd" id="2_u43lc"]
 [ext_resource type="FontFile" uid="uid://bgeegwo3mhbrf" path="res://Silkscreen-Regular.ttf" id="3_vxhfd"]
@@ -48,6 +49,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.935166, 0)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0113506, 0.0689784, 0.0445242)
 current = true
 fov = 111.1
+
+[node name="SlamSFX" type="AudioStreamPlayer" parent="Player"]
+stream = ExtResource("2_4s1tc")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_g12fy")

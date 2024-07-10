@@ -6,6 +6,7 @@ var JUMP_VELOCITY = 10
 @export var sensitivity = -0.1
 var capture = true
 var jumps = 1
+var floorSFX = false
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
@@ -21,6 +22,7 @@ func _physics_process(delta):
 	# Add the gravity.
 	if not is_on_floor():
 		velocity.y -= gravity * delta
+		floorSFX = false
 
 	# Handle jump.
 	if Input.is_action_just_pressed("ui_accept") and jumps == 1:
@@ -40,8 +42,11 @@ func _physics_process(delta):
 	if Input.is_action_just_pressed("ground_slam") and not is_on_floor():
 		gravity += 500
 	elif is_on_floor():
+		if floorSFX == false:
+			$SlamSFX.play()
 		gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 		jumps = 1
+		floorSFX = true
 		
 	if Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT):
 		capture = true

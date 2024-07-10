@@ -1,10 +1,11 @@
-[gd_scene load_steps=11 format=3 uid="uid://b64k3fapujmty"]
+[gd_scene load_steps=12 format=3 uid="uid://b64k3fapujmty"]
 
 [ext_resource type="Script" path="res://Scenes/End.gd" id="1_4ea4n"]
 [ext_resource type="Script" path="res://Scenes/FinalCountdown.gd" id="1_41o08"]
 [ext_resource type="Script" path="res://Scripts/Player.gd" id="2_mvwqx"]
 [ext_resource type="PackedScene" uid="uid://5ukhkedqdumi" path="res://Scenes/Platform2.tscn" id="3_c8gyw"]
 [ext_resource type="FontFile" uid="uid://bgeegwo3mhbrf" path="res://Silkscreen-Regular.ttf" id="4_l8qgx"]
+[ext_resource type="AudioStream" uid="uid://c2en28dpn56yn" path="res://Audio/646661__sounddesignforyou__landing-on-the-ground-1.wav" id="4_pufg1"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_ev1q7"]
 sky_top_color = Color(0, 0, 0, 1)
@@ -59,6 +60,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.935166, 0)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0113506, 0.0689783, 0.0445242)
 current = true
 fov = 111.1
+
+[node name="SlamSFX" type="AudioStreamPlayer" parent="Player"]
+stream = ExtResource("4_pufg1")
 
 [node name="Platform1" parent="." instance=ExtResource("3_c8gyw")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00850821, -0.641798, -0.00212718)

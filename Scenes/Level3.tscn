@@ -1,7 +1,9 @@
-[gd_scene load_steps=8 format=3 uid="uid://cma7q81q6ntb3"]
+[gd_scene load_steps=10 format=3 uid="uid://cma7q81q6ntb3"]
 
 [ext_resource type="Script" path="res://Scripts/Player.gd" id="1_ynwbk"]
 [ext_resource type="PackedScene" uid="uid://rv2kgpgykjsh" path="res://Scenes/Platform1.tscn" id="2_6sgcm"]
+[ext_resource type="AudioStream" uid="uid://c2en28dpn56yn" path="res://Audio/646661__sounddesignforyou__landing-on-the-ground-1.wav" id="2_8ikix"]
+[ext_resource type="AudioStream" uid="uid://cbqd8g3r8ulxe" path="res://Audio/744098__christmaskrumble666__lake-night-ambient-bgm.wav" id="3_a8ixs"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_npa7n"]
 radius = 0.322304
@@ -42,6 +44,12 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.935166, 0)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0113506, 0.0689784, 0.0445242)
 current = true
 fov = 111.1
+
+[node name="SlamSFX" type="AudioStreamPlayer" parent="Player"]
+stream = ExtResource("2_8ikix")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="Player"]
+stream = ExtResource("3_a8ixs")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_eskl1")
