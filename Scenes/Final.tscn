@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://gh1pgmqhwaba"]
+[gd_scene load_steps=13 format=3 uid="uid://gh1pgmqhwaba"]
 
 [ext_resource type="Script" path="res://Scripts/Player.gd" id="1_rdn2v"]
 [ext_resource type="AudioStream" uid="uid://c2en28dpn56yn" path="res://Audio/646661__sounddesignforyou__landing-on-the-ground-1.wav" id="2_4s1tc"]
@@ -6,6 +6,7 @@
 [ext_resource type="Script" path="res://Scenes/AntagRed.gd" id="2_u43lc"]
 [ext_resource type="FontFile" uid="uid://bgeegwo3mhbrf" path="res://Silkscreen-Regular.ttf" id="3_vxhfd"]
 [ext_resource type="Script" path="res://Scenes/Cutscene2.gd" id="4_bbyi6"]
+[ext_resource type="AudioStream" uid="uid://cq0p7t1iastph" path="res://Audio/eerie-drone-.wav" id="7_m3uop"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_b8jkj"]
 radius = 0.322304
@@ -102,6 +103,14 @@ script = ExtResource("4_bbyi6")
 [node name="Timer" type="Timer" parent="AntagonistSpeak"]
 wait_time = 0.001
 autostart = true
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="AntagonistSpeak"]
+position = Vector2(-191, -831)
+stream = ExtResource("7_m3uop")
+volume_db = 11.805
+autoplay = true
+max_distance = 5e+06
+attenuation = 2.47879e-05
 
 [connection signal="Change" from="AntagonistSpeak" to="WorldEnvironment" method="_on_antagonist_speak_change"]
 [connection signal="timeout" from="AntagonistSpeak/Timer" to="AntagonistSpeak" method="_on_timer_timeout"]

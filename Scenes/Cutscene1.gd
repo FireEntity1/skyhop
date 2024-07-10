@@ -14,11 +14,12 @@ func _process(delta):
 
 
 func _on_timer_timeout():
-	match index:
-		0 : self.text = "You've made it farther than most"
-		1 : self.text = "But you've gone... too far..."
-		2 : self.text = "It's time for you to stop"
-		3 : self.text = "Count your hours . . ."
-		4 : get_tree().change_scene_to_file("res://Scenes/Final.tscn")
-	$Timer.start(5)
 	index += 1
+	match index:
+		0 : self.text = "You've made it farther than most" ; $AudioStreamPlayer2D.play()
+		1 : self.text = "A little too far. . ." ; $AudioStreamPlayer2D.play()
+		2 : self.text = "It's time for you to stop" ; $AudioStreamPlayer2D.play()
+		3 : self.text = " . . . "
+		4 : get_tree().change_scene_to_file("res://Scenes/Level5.tscn")
+	$Timer.start(5)
+

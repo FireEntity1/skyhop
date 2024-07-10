@@ -77,7 +77,6 @@ func _on_end_point_body_entered(body):
 			"Level1" : get_tree().change_scene_to_file("res://Scenes/Level2.tscn")
 			"Level2" : get_tree().change_scene_to_file("res://Scenes/Level3.tscn")
 			"Level3" : get_tree().change_scene_to_file("res://Scenes/Level4.tscn")
-			"Level4" : get_tree().change_scene_to_file("res://Scenes/Level5.tscn")
+			"Level4" : get_tree().change_scene_to_file("res://Scenes/Cutscene1.tscn")
 			"Level5" : get_tree().change_scene_to_file("res://Scenes/Level6.tscn")
-			"Level6" : get_tree().change_scene_to_file("res://Scenes/Cutscene1.tscn")
-			
+			"Level6" : get_tree().change_scene_to_file("res://Scenes/Final.tscn")
