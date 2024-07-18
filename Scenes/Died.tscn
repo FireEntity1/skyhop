@@ -1,9 +1,10 @@
-[gd_scene load_steps=6 format=3 uid="uid://chb22mvpoo40p"]
+[gd_scene load_steps=7 format=3 uid="uid://chb22mvpoo40p"]
 
 [ext_resource type="Texture2D" uid="uid://ctk6vfwegbgf7" path="res://Models/antagonist.png" id="1_wlq4h"]
 [ext_resource type="Script" path="res://Scenes/Died.gd" id="1_yig44"]
 [ext_resource type="Texture2D" uid="uid://cssmh6bg2lrp4" path="res://Models/blackbg.png" id="2_lf8e5"]
 [ext_resource type="FontFile" uid="uid://bgeegwo3mhbrf" path="res://Silkscreen-Regular.ttf" id="2_w2lpq"]
+[ext_resource type="AudioStream" uid="uid://iukhr8h8h5d6" path="res://Audio/eerie-sf.wav" id="5_0apds"]
 
 [sub_resource type="Theme" id="Theme_wo3wv"]
 default_font = ExtResource("2_w2lpq")
@@ -34,5 +35,10 @@ horizontal_alignment = 1
 [node name="Timer" type="Timer" parent="."]
 wait_time = 5.0
 autostart = true
+
+[node name="DeathSFX" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("5_0apds")
+volume_db = 1.485
+autoplay = true
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

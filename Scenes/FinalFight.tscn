@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://8irgpak2p57r"]
+[gd_scene load_steps=17 format=3 uid="uid://8irgpak2p57r"]
 
 [ext_resource type="Script" path="res://Scripts/Player.gd" id="1_5wlcd"]
 [ext_resource type="AudioStream" uid="uid://c2en28dpn56yn" path="res://Audio/646661__sounddesignforyou__landing-on-the-ground-1.wav" id="2_0ffsg"]
@@ -7,6 +7,8 @@
 [ext_resource type="FontFile" uid="uid://bgeegwo3mhbrf" path="res://Silkscreen-Regular.ttf" id="4_fqoky"]
 [ext_resource type="Script" path="res://Scenes/BossScene.gd" id="5_y84l0"]
 [ext_resource type="PackedScene" uid="uid://0yirj2mlwunj" path="res://Scenes/Platform3.tscn" id="6_rp4bo"]
+[ext_resource type="AudioStream" uid="uid://cvq0c1g10hawr" path="res://Audio/introFinal.wav" id="8_7tttk"]
+[ext_resource type="AudioStream" uid="uid://dl07n74ya1dgu" path="res://Audio/finalFight.mp3" id="8_irkxm"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_736v8"]
 radius = 0.322304
@@ -104,6 +106,20 @@ wait_time = 0.001
 autostart = true
 
 [node name="Timer2" type="Timer" parent="AntagonistSpeak"]
+
+[node name="Intro" type="AudioStreamPlayer2D" parent="AntagonistSpeak"]
+position = Vector2(-191, -831)
+stream = ExtResource("8_7tttk")
+volume_db = 6.438
+autoplay = true
+
+[node name="Final" type="AudioStreamPlayer2D" parent="AntagonistSpeak"]
+position = Vector2(-191, -831)
+stream = ExtResource("8_irkxm")
+volume_db = 0.869
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="AntagonistSpeak"]
+position = Vector2(-191, -831)
 
 [node name="Platform2" parent="." instance=ExtResource("6_rp4bo")]
 transform = Transform3D(1.73594, 0, 0, 0, 1.73594, 0, 0, 0, 1.73594, -42.7217, 0, -0.23767)

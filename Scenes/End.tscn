@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://b64k3fapujmty"]
+[gd_scene load_steps=13 format=3 uid="uid://b64k3fapujmty"]
 
 [ext_resource type="Script" path="res://Scenes/End.gd" id="1_4ea4n"]
 [ext_resource type="Script" path="res://Scenes/FinalCountdown.gd" id="1_41o08"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://5ukhkedqdumi" path="res://Scenes/Platform2.tscn" id="3_c8gyw"]
 [ext_resource type="FontFile" uid="uid://bgeegwo3mhbrf" path="res://Silkscreen-Regular.ttf" id="4_l8qgx"]
 [ext_resource type="AudioStream" uid="uid://c2en28dpn56yn" path="res://Audio/646661__sounddesignforyou__landing-on-the-ground-1.wav" id="4_pufg1"]
+[ext_resource type="AudioStream" uid="uid://c2vhtbrsybv8r" path="res://Audio/win.wav" id="7_gnk2b"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_ev1q7"]
 sky_top_color = Color(0, 0, 0, 1)
@@ -41,6 +42,7 @@ script = ExtResource("1_41o08")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="WorldEnvironment"]
 transform = Transform3D(0.424994, -0.00714005, 0.905168, -0.905196, -0.00288954, 0.424984, -0.000418889, -0.99997, -0.00769118, 0.00255156, 18.3709, -0.398912)
+light_color = Color(0, 1, 0, 1)
 light_energy = 2.131
 light_indirect_energy = 5.17
 shadow_enabled = true
@@ -79,5 +81,10 @@ text = "Thank you for playing!"
 [node name="Timer" type="Timer" parent="."]
 wait_time = 8.0
 autostart = true
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("7_gnk2b")
+volume_db = 15.848
+autoplay = true
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
