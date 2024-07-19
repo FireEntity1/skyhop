@@ -1,9 +1,10 @@
-[gd_scene load_steps=10 format=3 uid="uid://cx5y6e8w26mq"]
+[gd_scene load_steps=11 format=3 uid="uid://cx5y6e8w26mq"]
 
 [ext_resource type="Script" path="res://Scripts/Player.gd" id="1_tq7tt"]
 [ext_resource type="PackedScene" uid="uid://5ukhkedqdumi" path="res://Scenes/Platform2.tscn" id="2_3peov"]
 [ext_resource type="AudioStream" uid="uid://c2en28dpn56yn" path="res://Audio/646661__sounddesignforyou__landing-on-the-ground-1.wav" id="2_tsyyg"]
 [ext_resource type="AudioStream" uid="uid://bwbsbkijdamia" path="res://Audio/piano3.wav" id="3_v3y5t"]
+[ext_resource type="FontFile" uid="uid://bgeegwo3mhbrf" path="res://Silkscreen-Regular.ttf" id="5_ivaey"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_55nqu"]
 sky_top_color = Color(0.0675368, 0.0728905, 0.0648755, 1)
@@ -105,5 +106,30 @@ transform = Transform3D(1.81183, 0, 0, 0, 1.81183, 0, 0, 0, 1.81183, 15.6906, 20
 [node name="EndCollision" type="CollisionShape3D" parent="EndPoint"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.856338, 1.01545, -0.696152)
 shape = SubResource("BoxShape3D_pa4jr")
+
+[node name="AntagSpeak" type="Label3D" parent="."]
+transform = Transform3D(-0.017106, -0.764609, -1.98393, -0.00659241, 1.984, -0.764581, 2.12616, 0, -0.0183323, 4.97945, 1.93567, -0.498541)
+text = "Look up."
+font = ExtResource("5_ivaey")
+font_size = 80
+
+[node name="AntagSpeak3" type="Label3D" parent="."]
+transform = Transform3D(0.00189091, 0.764589, 1.98401, -0.00659241, 1.984, -0.764581, -2.12623, -0.00547148, 0.00413501, 51.3115, 8.71506, -0.788822)
+text = "Just stop."
+font = ExtResource("5_ivaey")
+font_size = 80
+
+[node name="AntagSpeak4" type="Label3D" parent="."]
+transform = Transform3D(-0.017106, -0.764609, -1.98393, -0.00659241, 1.984, -0.764581, 2.12616, 0, -0.0183323, 57.1408, 1.93567, -0.498541)
+text = "Why do you 
+do this?"
+font = ExtResource("5_ivaey")
+font_size = 80
+
+[node name="AntagSpeak2" type="Label3D" parent="."]
+transform = Transform3D(-0.00265113, -2.10389, -0.307475, -0.0181396, 0.307487, -2.10381, 2.12616, 4.61937e-10, -0.0183323, 1.61196, 5.62685, -0.498541)
+text = "Hello."
+font = ExtResource("5_ivaey")
+font_size = 80
 
 [connection signal="body_entered" from="EndPoint" to="Player" method="_on_end_point_body_entered"]

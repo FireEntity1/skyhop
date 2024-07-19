@@ -1,9 +1,10 @@
-[gd_scene load_steps=10 format=3 uid="uid://cma7q81q6ntb3"]
+[gd_scene load_steps=11 format=3 uid="uid://cma7q81q6ntb3"]
 
 [ext_resource type="Script" path="res://Scripts/Player.gd" id="1_ynwbk"]
 [ext_resource type="PackedScene" uid="uid://rv2kgpgykjsh" path="res://Scenes/Platform1.tscn" id="2_6sgcm"]
 [ext_resource type="AudioStream" uid="uid://c2en28dpn56yn" path="res://Audio/646661__sounddesignforyou__landing-on-the-ground-1.wav" id="2_8ikix"]
 [ext_resource type="AudioStream" uid="uid://cbqd8g3r8ulxe" path="res://Audio/744098__christmaskrumble666__lake-night-ambient-bgm.wav" id="3_a8ixs"]
+[ext_resource type="FontFile" uid="uid://bgeegwo3mhbrf" path="res://Silkscreen-Regular.ttf" id="5_pu0w3"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_npa7n"]
 radius = 0.322304
@@ -111,10 +112,22 @@ transform = Transform3D(0.999707, -0.0238697, 0.0041176, 0.018694, 0.868413, 0.4
 transform = Transform3D(2.40292, 0, 0, 0, 1.15438, 0, 0, 0, 2.40292, 85.1904, -6.01571, 223.051)
 
 [node name="EndPoint" type="Area3D" parent="."]
-transform = Transform3D(1.81183, 0, 0, 0, 1.81183, 0, 0, 0, 1.81183, 83.3313, -2.3896, 226.924)
+transform = Transform3D(1.81183, 0, 0, 0, 1.81183, 0, 0, 0, 1.81183, 83.3391, -2.24362, 226.924)
 
 [node name="EndCollision" type="CollisionShape3D" parent="EndPoint"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.856338, 1.01545, -0.696152)
 shape = SubResource("BoxShape3D_ooobq")
+
+[node name="AntagSpeak" type="Label3D" parent="."]
+transform = Transform3D(-0.017106, -0.764609, -1.98393, -0.00659241, 1.984, -0.764581, 2.12616, 0, -0.0183323, 4.97945, 1.93567, -0.498541)
+text = "You're one of many..."
+font = ExtResource("5_pu0w3")
+font_size = 80
+
+[node name="AntagSpeak2" type="Label3D" parent="."]
+transform = Transform3D(-2.08613, -0.153837, -0.381205, -0.0065925, 1.984, -0.764581, 0.411022, -0.748973, -1.94705, 151.811, -4.90765, 85.9868)
+text = "Many who will fail."
+font = ExtResource("5_pu0w3")
+font_size = 80
 
 [connection signal="body_entered" from="EndPoint" to="Player" method="_on_end_point_body_entered"]

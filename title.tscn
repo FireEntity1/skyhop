@@ -1,0 +1,57 @@
+[gd_scene load_steps=8 format=3 uid="uid://c1jcic7of4i4c"]
+
+[ext_resource type="Texture2D" uid="uid://cssmh6bg2lrp4" path="res://Models/blackbg.png" id="1_chbbb"]
+[ext_resource type="Texture2D" uid="uid://dde83t4hyh2d7" path="res://Models/background.png" id="1_q3d0a"]
+[ext_resource type="Texture2D" uid="uid://22573woovmhs" path="res://Models/startButton2.png" id="2_sjris"]
+[ext_resource type="Texture2D" uid="uid://c5nv4gtu46hx3" path="res://Models/startButton1.png" id="3_n4kum"]
+[ext_resource type="Script" path="res://startGame.gd" id="5_fgiql"]
+[ext_resource type="FontFile" uid="uid://bgeegwo3mhbrf" path="res://Silkscreen-Regular.ttf" id="6_bsswt"]
+
+[sub_resource type="Theme" id="Theme_lovl0"]
+default_font = ExtResource("6_bsswt")
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Blackbg" type="Sprite2D" parent="."]
+position = Vector2(923, 551)
+scale = Vector2(5.74851, 5.708)
+texture = ExtResource("1_chbbb")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(959.5, 541)
+scale = Vector2(1.0026, 1.00741)
+texture = ExtResource("1_q3d0a")
+
+[node name="TextureButton" type="TextureButton" parent="."]
+offset_left = 704.0
+offset_top = 317.0
+offset_right = 960.0
+offset_bottom = 573.0
+scale = Vector2(2.02967, 2.02245)
+texture_normal = ExtResource("2_sjris")
+texture_hover = ExtResource("3_n4kum")
+script = ExtResource("5_fgiql")
+
+[node name="Label" type="Label" parent="."]
+offset_left = 622.0
+offset_top = 121.0
+offset_right = 1318.0
+offset_bottom = 314.0
+theme = SubResource("Theme_lovl0")
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 150
+text = "SKYHOP"
+
+[node name="Label2" type="Label" parent="."]
+offset_left = 53.0
+offset_top = 407.0
+offset_right = 749.0
+offset_bottom = 600.0
+theme = SubResource("Theme_lovl0")
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 40
+text = "WASD - Move
+Space - jump
+ctrl - Ground slam"
+
+[connection signal="button_up" from="TextureButton" to="TextureButton" method="_on_button_up"]

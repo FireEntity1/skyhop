@@ -17,7 +17,7 @@ func _on_timer_timeout():
 		1 : self.text = "You've  made it clear you don't want to cooperate"
 		2 : self.text = "And I won't either"
 		3 : self.text = ". . ."; $Intro.stop()
-		4 : self.text = "D I E"; emit_signal("run"); $Final.play()
+		4 : self.text = "D I E"; emit_signal("run"); $Final.play(); $StaticBody3D.position.y = 500
 
 func _on_end_point_body_entered(body):
 	if body is CharacterBody3D:

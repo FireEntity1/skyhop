@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://8irgpak2p57r"]
+[gd_scene load_steps=18 format=3 uid="uid://8irgpak2p57r"]
 
 [ext_resource type="Script" path="res://Scripts/Player.gd" id="1_5wlcd"]
 [ext_resource type="AudioStream" uid="uid://c2en28dpn56yn" path="res://Audio/646661__sounddesignforyou__landing-on-the-ground-1.wav" id="2_0ffsg"]
@@ -37,6 +37,9 @@ default_font = ExtResource("4_fqoky")
 
 [sub_resource type="Theme" id="Theme_ugsiv"]
 default_font = ExtResource("4_fqoky")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ok8eb"]
+size = Vector3(1, 27.4838, 41.5498)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_60mu2"]
 size = Vector3(7.07442, 7.34912, 7.30371)
@@ -120,6 +123,13 @@ volume_db = 0.869
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="AntagonistSpeak"]
 position = Vector2(-191, -831)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="AntagonistSpeak"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -30.9914, 0, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="AntagonistSpeak/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.43344, -1.98096)
+shape = SubResource("BoxShape3D_ok8eb")
 
 [node name="Platform2" parent="." instance=ExtResource("6_rp4bo")]
 transform = Transform3D(1.73594, 0, 0, 0, 1.73594, 0, 0, 0, 1.73594, -42.7217, 0, -0.23767)

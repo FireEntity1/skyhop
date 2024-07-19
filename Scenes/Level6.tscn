@@ -1,10 +1,11 @@
-[gd_scene load_steps=11 format=3 uid="uid://d3ufxc3ugfsm7"]
+[gd_scene load_steps=12 format=3 uid="uid://d3ufxc3ugfsm7"]
 
 [ext_resource type="Script" path="res://Scripts/Player.gd" id="1_yjist"]
 [ext_resource type="AudioStream" uid="uid://c2en28dpn56yn" path="res://Audio/646661__sounddesignforyou__landing-on-the-ground-1.wav" id="2_6643w"]
 [ext_resource type="PackedScene" uid="uid://5ukhkedqdumi" path="res://Scenes/Platform2.tscn" id="2_df2nv"]
 [ext_resource type="AudioStream" uid="uid://c75pgvfrhoj0r" path="res://Audio/745142__twotrickpony__unreality-atmospheric-loop.mp3" id="3_22v3b"]
 [ext_resource type="PackedScene" uid="uid://rv2kgpgykjsh" path="res://Scenes/Platform1.tscn" id="3_h3dna"]
+[ext_resource type="FontFile" uid="uid://bgeegwo3mhbrf" path="res://Silkscreen-Regular.ttf" id="6_bmmqv"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_x11m6"]
 radius = 0.322304
@@ -110,5 +111,19 @@ transform = Transform3D(1.81183, 0, 0, 0, 1.81183, 0, 0, 0, 1.81183, -50.1078, 2
 [node name="EndCollision" type="CollisionShape3D" parent="EndPoint"]
 transform = Transform3D(0.999957, 0, 0, 0, 0.999957, 0, 0, 0, 0.999957, 1.78241, 1.97147, -3.87729)
 shape = SubResource("BoxShape3D_c50vd")
+
+[node name="AntagSpeak" type="Label3D" parent="."]
+transform = Transform3D(-4.73892, 0, -4.14289e-07, 8.84329e-08, 4.6297, -1.01155, 4.04741e-07, -1.01155, -4.6297, 0.00189829, 6.33418, 12.407)
+text = "why... why...
+WHY do you 
+keep going on"
+font = ExtResource("6_bmmqv")
+font_size = 80
+
+[node name="AntagSpeak2" type="Label3D" parent="."]
+transform = Transform3D(8.019, 0, 0, 0, 7.83493, -1.70829, 0, 1.70829, 7.83493, -39.5644, 197.523, -109.738)
+text = "Give up now."
+font = ExtResource("6_bmmqv")
+font_size = 80
 
 [connection signal="body_entered" from="EndPoint" to="Player" method="_on_end_point_body_entered"]
