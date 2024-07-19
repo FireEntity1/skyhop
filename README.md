@@ -1,3 +1,3 @@
 # Skyhop
 
-A basic 3D platformer game in heavy development
+A short story-based platformer, available to play on https://fire-entity.itch.io/skyhop
